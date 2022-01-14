@@ -1,9 +1,11 @@
 const { Router } = require("express");
 const {
-    renderDashboard
-} = require("../../../controllers/views/privateController/dashboard")
+    renderDashboardPage
+} = require("../../../../controllers/views/privateController")
 
 
 const router = Router();
 
-router.get("/", renderDashboard); 
+router.get("/", renderDashboardPage); 
+
+module.exports = router;
