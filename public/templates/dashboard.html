@@ -50,92 +50,102 @@
 
 
 <main class="background">
-    <body>
+  <body>
 
-        <div class="row pt-5 pe-5">
-            <div class="col"></div>
+    <div class="row pt-5 pe-5">
+        <div class="col"></div>
 
-                <div class="col-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">New Shipment</p>
+          <div class="col-12 ms-4">
+            <div class="card">
+              <div class="card-body">
+                  <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Dashboard</p>
+                    <div class="row">
+                      <div class="col-2 mb-4">
+                          <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Shipment</a>
+                      </div>
 
-                                    <form class="row">
-                                        <p class="text-uppercase fs-4 text-muted mb-2">Shipment details</p>
-                                        <div class="col-5 form-floating mb-5">
-                                            <input type="trackingnumber" class="form-control" id="floatingInputGrid" placeholder="tracking number">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Tracking number</label>
-                                        </div>
+                      <div class="col-2 mb-4">
+                        <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
+                      </div>
+                    </div>
+                      <div class="bg-light border">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
 
-                                        <div class="dropdown col-3 form-floating mb-5">
-                                            <a class="btn btn-white dropdown-toggle text-uppercase text-muted fs-5 pt-3 pb-2 border" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <span class="ps-2 pe-5"> Courier service by ...</span>
-                                            </a>
-                                                
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item text-uppercase text-muted fs-5" href="#">DHL</i></a></li>
-                                                <li><a class="dropdown-item text-uppercase text-muted fs-5" href="#">Hermes</a></li>
-                                                <li><a class="dropdown-item text-uppercase text-muted fs-5" href="#">UPS</a></li>
-                                            </ul>
-                                        </div>
+                              <button class="accordion-button collapsed text-uppercase fs-5 text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Click for more details ...
+                              </button>
 
-                                        <div class="col-3 form-floating mb-5">
-                                            <input type="date-arrival" class="form-control" id="floatingInputGrid" placeholder="date-arrival">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Day of arrival</label>
-                                        </div>
-                                    </form>
+                                <form class="row">
+                                  
+                                  <!-- From database -->
+                                  <div class="col-2 form-floating mb-2 mt-3 ms-3">
+                                    <input type="date-arrival" class="form-control" id="floatingInputGrid" placeholder="date-arrival">
+                                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Day of arrival</label>
+                                  </div>
+                                  
+                                  <!-- From database -->
+                                  <div class="col-md-3 form-floating mb-2 mt-3">
+                                      <input type="orderDetails" class="form-control" id="floatingInputGrid" placeholder="order-deteails">
+                                      <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Ordered from ...</label>
+                                  </div>
+                                  
+                                  <!-- From database -->
+                                  <div class="col-1 form-floating mb-2 mt-3">
+                                    <input type="date-arrival" class="form-control" id="floatingInputGrid" placeholder="date-arrival">
+                                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Courier</label>
+                                  </div>
 
-                                    <form class="row">
-                                        <p class="text-uppercase fs-4 text-muted mb-2">Order details</p>
-                                        <div class="col-5 form-floating mb-4">
-                                            <input type="orderDetails" class="form-control" id="floatingInputGrid" placeholder="order-deteails">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Ordered from ...</label>
-                                        </div>
+                                  <div class="col-2 form-floating mb-2 mt-3">
+                                    <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="keyword">
+                                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Address keyword</label>
+                                  </div>
 
-                                        <div class="col-3 form-floating mb-4">
-                                            <input type="orderNumber" class="form-control" id="floatingInputGrid" placeholder="order-number">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order number</label>
-                                        </div>
+                                  <div class="col-2 form-floating mb-2 mt-3">
+                                    <input type="trackingnumber" class="form-control" id="floatingInputGrid" placeholder="tracking number">
+                                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Tracking number</label>
+                                  </div>
 
-                                        <div class="col-3 form-floating mb-4">
-                                            <input type="date-made" class="form-control" id="floatingInputGrid" placeholder="order-made">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order place on ...</label>
-                                        </div>
-                                    </form>
+                                  <div class="col-auto mb-2 mt-3">
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-edit"></i></a>
+                                  </div>
 
-                                    <form class="row">
-                                        <div class="col-11 form-floating mb-5">
-                                            <input type="company" class="form-control" id="floatingInputGrid" placeholder="company">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order description (e.g. Shoes, Laptop, Present for Swapnil)</label>
-                                        </div>
-                                    </form>
+                                  <div class="col-auto mb-2 mt-3">
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
+                                  </div>
+                                  
+                                </form>  
+                              </h2>
 
-                                    <form class="row">
-                                        <p class="text-uppercase fs-4 text-muted mb-2">Shipment to goes to the following address and receiver:</p>
-                                        <div class="col-5 form-floating mb-4">
-                                            <input type="orderDetails" class="form-control" id="floatingInputGrid" placeholder="order-deteails">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Ordered from ...</label>
-                                        </div>
-                                        
-                                        <div class="col-1 form-floating mb-4">
-                                        <p class="text-uppercase text-muted fs-5 ms-4">OR</p>
-                                        </div>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
 
-                                        <div class="col-3 form-floating mb-4">
-                                        <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
-                                        </div>
-                                    </form>
-                                    
+                                  <form class="row">
+                                    <div class="col-5 form-floating mb-2 mt-1">
+                                      <input type="description" class="form-control" id="floatingInputGrid" placeholder="description">
+                                      <label class="text-uppercase text-muted fs-5 ms-3 text-wrap" for="floatingInputGrid">Order description</label>
+                                    </div>
 
-                                <div>
-                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-save"></i></a>
-                                </div>
-                            </div>
+                                    <div class="col-3 form-floating mb-2 mt-1">
+                                        <input type="orderNumber" class="form-control" id="floatingInputGrid" placeholder="order-number">
+                                        <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order number</label>
+                                    </div>
+
+                                    <div class="col-3 form-floating mb-2 mt-1 ms-3">
+                                        <input type="date-made" class="form-control" id="floatingInputGrid" placeholder="order-made">
+                                        <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order place on ...</label>
+                                    </div>
+                                  </form>
+</div>
+</div>
                         </div>
-                    
-                </div>
-        </div>
-    </body>
+                      </div>                                    
+              </div>
+            </div>
+          </div>
+    </div>
+
+  </body>
 </main>
 
 <!-- FOOTER -->
