@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// View(read) shipment - Get request
+// View(read) a shipment - Get request
 
 router.get("/:id", async (req, res) => {
   try {

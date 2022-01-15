@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// View(read) address - GET request
+// View(read) an address - GET request
 
 router.get("/:id", async (req, res) => {
   try {
