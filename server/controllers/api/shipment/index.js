@@ -54,6 +54,30 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// View(read) all shipments - Get request
+
+router.get("/", async (req, res) => {
+  try {
+    const allShipments = await Shipment.findAll({
+      attributes: [
+        "id",
+        "user_id",
+        "address_id",
+        "courier_id",
+        "tricking_number",
+        "order_number",
+        "description",
+        "order_made",
+        "expected_arrival",
+      ],
+    });
+    res.status(200).json(allShipments);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json("Error retrieving shipments data from database.");
+  }
+});
+
 // Update shipment - PUT request
 
 router.put("/:id", async (req, res) => {
