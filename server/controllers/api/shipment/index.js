@@ -84,4 +84,18 @@ router.put("/:id", async (req, res) => {
 
 // Delete shipment - DELETE request
 
+router.delete("/:id", async (req, res) => {
+  try {
+    await Shipment.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.status(200).json({ data: "Shipment successfully deleted." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to delete shipment." });
+  }
+});
+
 module.exports = router;
