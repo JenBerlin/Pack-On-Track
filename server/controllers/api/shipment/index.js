@@ -27,7 +27,35 @@ router.post("/", async (req, res) => {
 });
 
 // View(read) shipment - Get request
+
+router.get("/:id", async (req, res) => {
+  try {
+    const allShipments = await Shipment.findByPk(req.params.id, {
+      attributes: [
+        "id",
+        "user_id",
+        "address_id",
+        "courier_id",
+        "tricking_number",
+        "order_number",
+        "description",
+        "order_made",
+        "expected_arrival",
+      ],
+    });
+    if (!allShipments) {
+      res.status(404).json("No shipment with this ID in the database");
+      return;
+    }
+    res.status(200).json(allShipments);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json("Error retrieving shipment data from database.");
+  }
+});
+
 // Update shipment - PUT request
+
 // Delete shipment - DELETE request
 
 module.exports = router;
