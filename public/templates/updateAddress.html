@@ -19,6 +19,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <title>Pack on Track</title>
 </head>
 <body>
@@ -48,66 +54,74 @@
         <div class="row pt-5 pe-5">
             <div class="col"></div>
 
-                <div class="col-3">
+                <div class="col-8">
                         <div class="card">
                             <div class="card-body">
-                                <p class="text-uppercase fs-4 text-muted mb-5">Account info</p>
+                                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Update Address</p>
 
-                                <form>
-                                    <div class="form-floating mb-5">
-                                        <!-- Pre-filled from database -->
-                                        <input type="username" class="form-control" id="floatingInputGrid" placeholder="username">
-                                        <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Username</label>
-                                    </div>
+                                    <form class="row">
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="firstname" class="form-control" id="floatingInputGrid" placeholder="first name">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">First name</label>
+                                        </div>
 
-                                    <div>
-                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase mb-5">Update</a>
-                                    </div>
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="surname">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Surname</label>
+                                        </div>
+                                    </form>
 
-                                    <div class="form-floating mb-5">
-                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="email address">
-                                        <!-- Pre-filled from database -->
-                                        <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Email address</label>
-                                    </div>
-                                </form>
+                                    <form>
+                                        <div class="col-12 form-floating mb-4">
+                                            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="surname">
+                                            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Street No.</label>
+                                        </div>
+                                    </form>
+
+                                    <form class="row">
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="company" class="form-control" id="floatingInputGrid" placeholder="company">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Company</label>
+                                        </div>
+
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="additionalInfo" class="form-control" id="floatingInputGrid" placeholder="additinalInfo">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Additional info</label>
+                                        </div>
+                                    </form>
+
+                                    <form>
+                                        <div class="col-3 form-floating mb-4">
+                                            <input type="postcode" class="form-control" id="floatingInputGrid" placeholder="postcode">
+                                            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Postal code</label>
+                                        </div>
+                                    </form>
+
+                                    <form class="row">
+                                        <div class="col-6 form-floating mb-5">
+                                            <input type="city" class="form-control" id="floatingInputGrid" placeholder="city">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">City</label>
+                                        </div>
+
+                                        <div class="col-6 form-floating mb-5">
+                                            <input type="country" class="form-control" id="floatingInputGrid" placeholder="country">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Country</label>
+                                        </div>
+                                    </form>
+
+                                    <form>
+                                        <div class="col-6 form-floating mb-5">
+                                            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="keyword">
+                                            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Keyword for this address (e.g. office, home)</label>
+                                        </div>
+                                    </form>
 
                                 <div>
-                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">Update</a>
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">Save</a>
                                 </div>
                             </div>
                         </div>
                     
-                </div>
-
-                <div class="col-5">
-                    <div class="card">
-                            <div class="card-body">
-                                <p class="text-uppercase fs-4 text-muted mb-5">Address library</p>
-
-                                    <form class="row">
-                                        <div class="col-auto">
-                                            <p class="text-uppercase fs-5 text-muted mb-5">Keyword:</p>
-                                        </div>
-
-                                        <div class="col-auto form-floating mb-5">
-                                            <label for="inputKeyword" class="visually-hidden">Keyword</label>
-                                            <input type="keyword" class="form-control" id="inputKeyword" placeholder="Keyword">
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <a href="#" class="btn btn-lg btn-secondary text-uppercase">Update</a>
-                                        </div>
-
-                                        <div class="col-auto">
-                                            <a href="#" class="btn btn-lg btn-secondary text-uppercase">Delete</a>
-                                        </div>
-                                    </form>
-
-                                <div class="justify-item-end">
-                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
-                                </div>
-                            </div>
-                        </div>
                 </div>
         </div>
     </body>
@@ -165,7 +179,6 @@
     </div>
   </section>
   <!-- Section: Links  -->
-
 </footer>
 </div>
 </body>

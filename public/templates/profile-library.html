@@ -18,12 +18,12 @@
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
-      <link
+    />
+    <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
-    />
     />
     <title>Pack on Track</title>
 </head>
@@ -50,25 +50,77 @@
 
 <main class="background">
     <body>
-        <div class="row">
-            <div class="row">
-                <div class="col text-end text-uppercase text-muted fs-1 mt-5 mb-5 mx-4">Catching Haedline</div>
-            </div>
-            <div class="row">
-                <div class="col text-end text-uppercase text-muted fs-4 mx-4">ching Subline / Teaser: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi odio,<br>praesentium eum hic quasi ex perspiciatis ab animi mollitia laboriosam quidem nemo sit perferendis!<br>Assumenda dolore voluptatibus amet maxime<br><br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi odio,<br>praesentium eum hic quasi ex perspiciatis ab animi mollitia laboriosam quidem nemo sit perferendis!<br>Assumenda dolore voluptatibus amet maxime</div>
 
+        <div class="row pt-5 pe-5">
+            <div class="col"></div>
 
-                
-            </div>
-            <div class="">
-                <div class="">
-                <a href="#" class="btn btn-lg btn-secondary text-uppercase pull-right">Sing up!</a>
+                <div class="col-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Account info</p>
+
+                                <form class="row">
+                                    <div class="col-10 form-floating mb-5">
+                                        <!-- Pre-filled from database -->
+                                        <input type="username" class="form-control" id="floatingInputGrid" placeholder="username">
+                                        <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Username</label>
+                                    </div>
+
+                                    <div class="col-auto">
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase mb-5"><i class="far fa-edit"></i></a>
+                                    </div>
+                                </form>
+
+                                <form class="row">
+                                    <div class="col-10 form-floating ">
+                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="email address">
+                                        <!-- Pre-filled from database -->
+                                        <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Email address</label>
+                                    </div>
+                                
+
+                                    <div class="col-auto">
+                                        <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-edit"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    
                 </div>
-            </div>
 
+                <div class="col-4">
+                    <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Address library</p>
+
+                                    <form class="row">
+                                        <div class="col-auto">
+                                            <p class="text-uppercase fs-5 text-muted mb-5">Keyword:</p>
+                                        </div>
+                                        
+                                        <!-- Dropdown -->
+                                        <div class="col-7 form-floating mb-5">
+                                            <label for="inputKeyword" class="visually-hidden">Keyword</label>
+                                            <input type="keyword" class="form-control" id="inputKeyword" placeholder="Keyword">
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-edit"></i></a>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
+                                        </div>
+                                    </form>
+
+                                <div class="mb-2">
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
         </div>
     </body>
-
 </main>
 
 <!-- FOOTER -->
@@ -100,8 +152,7 @@
           <p><a href="https://www.linkedin.com/" target="_blank" lass="text-reset">LinkedIn</a></p>
           <p>
               <!-- Repo Links needs to be added -->
-            <a href="https://github.com/" target="_blank" class="text-reset">GitHub</a>
-          </p>
+            <a href="https://github.com/" target="_blank" class="text-reset">GitHub</a></p>
         </div>
         <!-- Grid column -->
 
