@@ -1,11 +1,13 @@
 const { Router } = require("express");
 const {
-    renderEmptyAddressForm,
-    renderEditAddressForm
-} = require("../../../controllers/views/privateController/address")
+    renderAddressFormPage,
+    renderEditAddressFormPage
+} = require("../../../../controllers/views/privateController")
 
 
 const router = Router();
 
-router.get("/", renderEmptyAddressForm); //router
-router.get("/:id", renderEditAddressForm); //router
+router.get("/", renderAddressFormPage);
+router.get("/:id", renderEditAddressFormPage);
+
+module.exports = router;

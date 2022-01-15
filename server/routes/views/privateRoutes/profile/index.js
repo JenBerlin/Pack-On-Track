@@ -1,9 +1,12 @@
 const { Router } = require("express");
 const {
-    renderEditProfileForm
-} = require("../../../controllers/views/privateController/profile")
+    renderProfilePage
+} = require("../../../../controllers/views/privateController")
 
 
 const router = Router();
 
-router.get("/:id", renderEditProfileForm); //router
+router.get("/:id", renderProfilePage);
+router.get("/", renderProfilePage);
+
+module.exports = router;

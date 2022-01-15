@@ -1,15 +1,16 @@
-const { Router } = require("express");
-const {
-    renderDashboardPage,
-    renderProfilePage,
-    renderShiptmentFormPage,
-    renderAddressFormPage
-} = require("../../../controllers/views/privateController")
 
+const { Router } = require("express");
+
+const dashboardRouter = require("./dashboard")
+const addressRouter = require("./address")
+const shipmentRouter = require("./shipment")
+const profileRouter = require("./profile")
 
 const router = Router();
 
-router.get("/dashboard", renderDashboardPage); //router
-router.get("/profile", renderProfilePage); //router
-router.get("/shipment", renderShiptmentFormPage); //router
-router.get("/address", renderAddressFormPage); //router
+router.use("/dashboard",dashboardRouter);
+router.use("/address",addressRouter);
+router.use("/shipment",shipmentRouter);
+router.use("/profile",profileRouter);
+
+module.exports = router;
