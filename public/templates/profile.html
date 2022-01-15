@@ -44,25 +44,73 @@
 
 <main class="background">
     <body>
-        <div class="row">
-            <div class="row">
-                <div class="col text-end text-uppercase text-muted fs-1 mt-5 mb-5 mx-4">Catching Haedline</div>
-            </div>
-            <div class="row">
-                <div class="col text-end text-uppercase text-muted fs-4 mx-4">ching Subline / Teaser: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi odio,<br>praesentium eum hic quasi ex perspiciatis ab animi mollitia laboriosam quidem nemo sit perferendis!<br>Assumenda dolore voluptatibus amet maxime<br><br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi odio,<br>praesentium eum hic quasi ex perspiciatis ab animi mollitia laboriosam quidem nemo sit perferendis!<br>Assumenda dolore voluptatibus amet maxime</div>
 
+        <div class="row pt-5 pe-5">
+            <div class="col"></div>
 
-                
-            </div>
-            <div class="">
-                <div class="">
-                <a href="#" class="btn btn-lg btn-secondary text-uppercase pull-right">Sing up!</a>
+                <div class="col-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase fs-4 text-muted mb-5">Account info</p>
+
+                                <form>
+                                    <div class="form-floating mb-5">
+                                        <!-- Pre-filled from database -->
+                                        <input type="username" class="form-control" id="floatingInputGrid" placeholder="username">
+                                        <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Username</label>
+                                    </div>
+
+                                    <div>
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase mb-5">Update</a>
+                                    </div>
+
+                                    <div class="form-floating mb-5">
+                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="email address">
+                                        <!-- Pre-filled from database -->
+                                        <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Email address</label>
+                                    </div>
+                                </form>
+
+                                <div>
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">Update</a>
+                                </div>
+                            </div>
+                        </div>
+                    
                 </div>
-            </div>
 
+                <div class="col-5">
+                    <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase fs-4 text-muted mb-5">Address library</p>
+
+                                    <form class="row">
+                                        <div class="col-auto">
+                                            <p class="text-uppercase fs-5 text-muted mb-5">Keyword:</p>
+                                        </div>
+
+                                        <div class="col-auto form-floating mb-5">
+                                            <label for="inputKeyword" class="visually-hidden">Keyword</label>
+                                            <input type="keyword" class="form-control" id="inputKeyword" placeholder="Keyword">
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <a href="#" class="btn btn-lg btn-secondary text-uppercase">Update</a>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <a href="#" class="btn btn-lg btn-secondary text-uppercase">Delete</a>
+                                        </div>
+                                    </form>
+
+                                <div class="justify-item-end">
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
         </div>
     </body>
-
 </main>
 
 <!-- FOOTER -->
@@ -94,8 +142,7 @@
           <p><a href="https://www.linkedin.com/" target="_blank" lass="text-reset">LinkedIn</a></p>
           <p>
               <!-- Repo Links needs to be added -->
-            <a href="https://github.com/" target="_blank" class="text-reset">GitHub</a>
-          </p>
+            <a href="https://github.com/" target="_blank" class="text-reset">GitHub</a></p>
         </div>
         <!-- Grid column -->
 
