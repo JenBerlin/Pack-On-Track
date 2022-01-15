@@ -9,10 +9,9 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        name: req.body.name,
+        user_name: req.body.user_name,
       },
     });
-    console.log("user");
     if (!user) {
       res.status(400).json({ message: "Incorrect username or password." });
       return;
@@ -28,7 +27,7 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.userId = user.id;
-      req.session.username = user.name;
+      req.session.user_name = user.user_name;
       return res.status(200).json({ user, message: "You are logged in!" });
     });
   } catch (error) {
@@ -38,14 +37,35 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout - GET request
-router.get("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   // If the user is already logged in, redirect to the homepage
-  req.session.loggedIn = false;
-  delete req.session.user_id;
-  res.redirect("/");
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      return res.status(200).json({ data: "Sign out successful." });
+    });
+  } else {
+    return res.status(500).json({ data: "Sign out failed." });
+  }
 });
 
 // Create User - Sign Up - POST request
+router.post("/signup", async (req, res) => {
+  try {
+    if (req.body.user_name && req.body.password) {
+      await User.create({
+        user_name: req.body.user_name,
+        email: req.body.email,
+        password: req.body.password,
+      });
+      return res.status(200).json({ data: "success" });
+    }
+
+    return res.status(400).json({ error: "Failed to create user." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to create user." });
+  }
+});
 
 // Update User - PUT request
 
