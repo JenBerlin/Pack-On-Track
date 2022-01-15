@@ -88,6 +88,36 @@ router.get("/", async (req, res) => {
 });
 
 // Update address - PUT request
+
+router.put("/:id", async (req, res) => {
+  try {
+    await Address.update(
+      {
+        user_id: req.session.user_id, // should not be possible to update?
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        street: req.body.street,
+        street_number: req.body.street_number,
+        additional_line: req.body.additional_line,
+        company: req.body.company,
+        post_number: req.body.post_number,
+        city: req.body.city,
+        country: req.body.country,
+        library_keyword: req.body.library_keyword,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    return res.status(200).json({ data: "Address succesfully updated." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to update address." });
+  }
+});
+
 // Delete address - DELETE request
 
 module.exports = router;
