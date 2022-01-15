@@ -9,9 +9,9 @@ const auth = require("../../../auth");
 router.post("/", async (req, res) => {
   try {
     const newShipment = {
-      user_id: req.session.user_id, // not possible to update
-      address_id: req.body.address_id, // not possible to update
-      courier_id: req.body.courier_id, // not possible to update
+      user_id: req.session.user_id,
+      address_id: req.body.address_id,
+      courier_id: req.body.courier_id,
       tricking_number: req.body.tricking_number,
       order_number: req.body.order_number,
       description: req.body.description,
@@ -55,6 +55,32 @@ router.get("/:id", async (req, res) => {
 });
 
 // Update shipment - PUT request
+
+router.put("/:id", async (req, res) => {
+  try {
+    await Shipment.update(
+      {
+        user_id: req.session.user_id, // should not be possible to update?
+        address_id: req.body.address_id,
+        courier_id: req.body.courier_id,
+        tricking_number: req.body.tricking_number,
+        order_number: req.body.order_number,
+        description: req.body.description,
+        order_made: req.body.order_made,
+        expected_arrival: req.body.expected_arrival,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    return res.status(200).json({ data: "Shipment succesfully updated." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to update shipment." });
+  }
+});
 
 // Delete shipment - DELETE request
 
