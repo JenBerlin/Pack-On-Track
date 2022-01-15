@@ -68,6 +68,26 @@ router.post("/signup", async (req, res) => {
 });
 
 // Update User - PUT request
+router.put("/:id", async (req, res) => {
+  try {
+    await User.update(
+      {
+        user_name: req.body.user_name,
+        email: req.body.email,
+        password: req.body.password,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    return res.status(200).json({ data: "Successfully updated user." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to update user." });
+  }
+});
 
 // Delete User - DELETE request
 
