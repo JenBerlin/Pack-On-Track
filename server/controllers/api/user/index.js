@@ -3,6 +3,7 @@ const sequelize = require("../../../../config/connection");
 
 const { User, Shipment, Courier, Address } = require("../../../../models");
 const auth = require("../../../auth"); // if user not logged in, gets redirected to /login
+const { beforeCreate, beforeUpdate } = require("../../../../server/hooks/");
 
 // Login - POST request
 router.post("/login", async (req, res) => {
