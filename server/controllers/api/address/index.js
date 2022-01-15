@@ -31,6 +31,35 @@ router.post("/", async (req, res) => {
 
 // View(read) address - GET request
 
+router.get("/:id", async (req, res) => {
+  try {
+    const allAddresses = await Address.findByPk(req.params.id, {
+      attributes: [
+        "id",
+        "user_id",
+        "first_name",
+        "last_name",
+        "street",
+        "street_number",
+        "additional_line",
+        "company",
+        "post_number",
+        "city",
+        "country",
+        "library_keyword",
+      ],
+    });
+    if (!allAddresses) {
+      res.status(404).json("No address with this ID in the database");
+      return;
+    }
+    res.status(200).json(allAddresses);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json("Error retrieving address data from database.");
+  }
+});
+
 // Update address - PUT request
 // Delete address - DELETE request
 
