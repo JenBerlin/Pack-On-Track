@@ -7,5 +7,6 @@ const {
 const router = Router();
 
 router.get("/:id", renderProfilePage);
+router.get("/", renderProfilePage);
 
 module.exports = router;

@@ -7,7 +7,7 @@ const {
 
 const router = Router();
 
-router.get("/:id", renderEditShiptmentFormPage);
 router.get("/", renderShiptmentFormPage );
+router.get("/:id", renderEditShiptmentFormPage);
 
 module.exports = router;

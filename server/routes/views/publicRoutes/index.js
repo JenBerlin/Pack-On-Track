@@ -6,7 +6,7 @@ const {
 
 const router = Router();
 
-router.get("/login", renderLoginSignUpPage);
 router.get("/", renderLandingPage);
+router.get("/login", renderLoginSignUpPage);
 
 module.exports = router;

@@ -1,16 +1,16 @@
 
 const { Router } = require("express");
 
-// const dashboardRouter = require("./dashboard")
+const dashboardRouter = require("./dashboard")
 const addressRouter = require("./address")
-const profileRouter = require("./profile")
 const shipmentRouter = require("./shipment")
+const profileRouter = require("./profile")
 
 const router = Router();
 
-// router.use(dashboardRouter);
-router.use(addressRouter);
-router.use(profileRouter);
-router.use(shipmentRouter);
+router.use("/dashboard",dashboardRouter);
+router.use("/address",addressRouter);
+router.use("/shipment",shipmentRouter);
+router.use("/profile",profileRouter);
 
 module.exports = router;
