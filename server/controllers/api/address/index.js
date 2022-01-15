@@ -60,6 +60,33 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// View all addresses - GET request
+
+router.get("/", async (req, res) => {
+  try {
+    const allAddresses = await Address.findAll({
+      attributes: [
+        "id",
+        "user_id",
+        "first_name",
+        "last_name",
+        "street",
+        "street_number",
+        "additional_line",
+        "company",
+        "post_number",
+        "city",
+        "country",
+        "library_keyword",
+      ],
+    });
+    res.status(200).json(allAddresses);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json("Error retrieving addresses data from database.");
+  }
+});
+
 // Update address - PUT request
 // Delete address - DELETE request
 
