@@ -1,13 +1,11 @@
-const { send } = require("express/lib/response");
-
 const renderLoginSignUpPage = (req, res) => {
-  res.render(`loginsignup`);
-  console.log(`loginsignup`);
+  res.render("loginSignup");
+  console.log("Rendering login signup");
 };
 
 const renderLandingPage = (req, res) => {
-  res.render(`home`);
-  console.log(`home/landing page`);
+  res.render(`landing`);
+  console.log("Rendering landing");
 };
 
 module.exports = {
