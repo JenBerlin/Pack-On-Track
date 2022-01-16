@@ -1,4 +1,3 @@
-const router = require("express").Router();
 const sequelize = require("../../../../config/connection");
 
 const { User, Shipment, Courier, Address } = require("../../../../models");
@@ -6,7 +5,7 @@ const auth = require("../../../auth");
 
 // Create address - POST request
 
-router.post("/", async (req, res) => {
+const createNewAddress = async (req, res) => {
   try {
     const newAddress = {
       user_id: req.session.user_id,
@@ -27,11 +26,11 @@ router.post("/", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to create address." });
   }
-});
+}
 
 // View(read) an address - GET request
 
-router.get("/:id", async (req, res) => {
+const getOneAddress = async (req, res) => {
   try {
     const allAddresses = await Address.findByPk(req.params.id, {
       attributes: [
@@ -58,11 +57,11 @@ router.get("/:id", async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving address data from database.");
   }
-});
+}
 
 // View all addresses - GET request
 
-router.get("/", async (req, res) => {
+const getAllAddresses = async (req, res) => {
   try {
     const allAddresses = await Address.findAll({
       attributes: [
@@ -85,11 +84,11 @@ router.get("/", async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving addresses data from database.");
   }
-});
+}
 
 // Update address - PUT request
 
-router.put("/:id", async (req, res) => {
+const updateAddress = async (req, res) => {
   try {
     await Address.update(
       {
@@ -116,11 +115,11 @@ router.put("/:id", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to update address." });
   }
-});
+}
 
 // Delete address - DELETE request
 
-router.delete("/:id", async (req, res) => {
+const deleteAddress = async (req, res) => {
   try {
     await Address.destroy({
       where: {
@@ -132,6 +131,12 @@ router.delete("/:id", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to delete address." });
   }
-});
+}
 
-module.exports = router;
+module.exports = {
+  createNewAddress,
+  getOneAddress,
+  getAllAddresses,
+  updateAddress,
+  deleteAddress
+};

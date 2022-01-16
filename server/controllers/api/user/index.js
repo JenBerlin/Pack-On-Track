@@ -1,12 +1,11 @@
-const router = require("express").Router();
 const sequelize = require("../../../../config/connection");
 
 const { User, Shipment, Courier, Address } = require("../../../../models");
 const auth = require("../../../auth"); // if user not logged in, gets redirected to /login
-const { beforeCreate, beforeUpdate } = require("../../../../server/hooks/");
+const { beforeCreate, beforeUpdate } = require("../../../../server/hooks");
 
 // Login - POST request
-router.post("/login", async (req, res) => {
+const userLogin = async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
@@ -35,10 +34,10 @@ router.post("/login", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed login." });
   }
-});
+}
 
 // Logout - GET request
-router.post("/logout", (req, res) => {
+const userLogout = async (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -47,10 +46,10 @@ router.post("/logout", (req, res) => {
   } else {
     return res.status(500).json({ data: "Sign out failed." });
   }
-});
+}
 
 // Create User - Sign Up - POST request
-router.post("/signup", async (req, res) => {
+const userSignup = async (req, res) => {
   try {
     if (req.body.user_name && req.body.password) {
       await User.create({
@@ -60,16 +59,15 @@ router.post("/signup", async (req, res) => {
       });
       return res.status(200).json({ data: "success" });
     }
-
     return res.status(400).json({ error: "Failed to create user." });
   } catch (error) {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to create user." });
   }
-});
+}
 
 // Update User - PUT request
-router.put("/:id", async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     await User.update(
       {
@@ -88,10 +86,10 @@ router.put("/:id", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to update user." });
   }
-});
+}
 
 // Delete User - DELETE request
-router.delete("/:id", async (req, res) => {
+const deleteUser = async (req, res) => {
   try {
     await User.destroy({
       where: {
@@ -103,6 +101,12 @@ router.delete("/:id", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to delete user." });
   }
-});
+}
 
-module.exports = router;
+module.exports = {
+  userLogin,
+  userLogout,
+  userSignup,
+  updateUser,
+  deleteUser
+};
