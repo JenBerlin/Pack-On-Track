@@ -18,11 +18,42 @@ const renderEditShiptmentFormPage = (req, res) => {
 }
 const renderAddressFormPage = (req, res) => {
     console.log(`New Address`);
-    res.render(`address`, { logged_in: req.session.logged_in });
+    res.render(`address`, { 
+        title: "New Address",
+        address: {
+            user_id: "",
+            first_name: "",
+            last_name: "",
+            street: "",
+            street_number: "",
+            company: "",
+            post_number: "",
+            city: "",
+            country: "",
+            library_keyword: "",
+        },
+        logged_in: req.session.logged_in 
+    });
 }
 const renderEditAddressFormPage = (req, res) => {
     console.log(`Edit Address`);
-    res.render(`address`, { logged_in: req.session.logged_in });
+    res.render(`address`, { 
+        title: "Edit Address",
+        address: {
+            user_id: 1,
+            first_name: "Quentin",
+            last_name: "Lernantino",
+            street: "Paris Avenue",
+            street_number: "15-A",
+            company: "Lernantino Productions",
+            post_number: 15005,
+            city: "Paris",
+            country: "France",
+            library_keyword: "Home",
+        },
+        isEdit: true,
+        logged_in: req.session.logged_in 
+    });
 }
 
 module.exports = {
