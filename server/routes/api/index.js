@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
-const addressRoutes = require("../../controllers/api/address");
-const courierRoutes = require("../../controllers/api/courier");
-const shipmentRoutes = require("../../controllers/api/shipment");
-const userRoutes = require("../../controllers/api/user");
+const addressRoutes = require("./address");
+const courierRoutes = require("./courier");
+const shipmentRoutes = require("./shipment");
+const userRoutes = require("./user");
 
 router.use("/user", userRoutes);
 router.use("/address", addressRoutes);

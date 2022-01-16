@@ -1,4 +1,3 @@
-const router = require("express").Router();
 const sequelize = require("../../../../config/connection");
 
 const { User, Shipment, Courier, Address } = require("../../../../models");
@@ -6,7 +5,7 @@ const auth = require("../../../auth");
 
 // Create shipment - POST request
 
-router.post("/", async (req, res) => {
+const createNewShipment = async (req, res) => {
   try {
     const newShipment = {
       user_id: req.session.user_id,
@@ -24,11 +23,11 @@ router.post("/", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to create shipment." });
   }
-});
+}
 
 // View(read) a shipment - Get request
 
-router.get("/:id", async (req, res) => {
+const getOneShipment = async (req, res) => {
   try {
     const allShipments = await Shipment.findByPk(req.params.id, {
       attributes: [
@@ -52,11 +51,11 @@ router.get("/:id", async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving shipment data from database.");
   }
-});
+}
 
 // View(read) all shipments - Get request
 
-router.get("/", async (req, res) => {
+const getAllShipments = async (req, res) => {
   try {
     const allShipments = await Shipment.findAll({
       attributes: [
@@ -76,11 +75,11 @@ router.get("/", async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving shipments data from database.");
   }
-});
+}
 
 // Update shipment - PUT request
 
-router.put("/:id", async (req, res) => {
+const updateShipment = async (req, res) => {
   try {
     await Shipment.update(
       {
@@ -104,11 +103,11 @@ router.put("/:id", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to update shipment." });
   }
-});
+}
 
 // Delete shipment - DELETE request
 
-router.delete("/:id", async (req, res) => {
+const deleteShipment = async (req, res) => {
   try {
     await Shipment.destroy({
       where: {
@@ -120,6 +119,12 @@ router.delete("/:id", async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to delete shipment." });
   }
-});
+}
 
-module.exports = router;
+module.exports = {
+  createNewShipment,
+  getOneShipment,
+  getAllShipments,
+  updateShipment,
+  deleteShipment
+};

@@ -13,11 +13,11 @@ const userLogin = async (req, res) => {
       },
     });
     if (!user) {
-      res.status(400).json({ message: "Incorrect username or password." });
+      res.status(401).json({ message: "Incorrect username or password." });
       return;
     }
     // Check if password correct
-    const validPassword = await user.checkPassword(req.body.password);
+    const validPassword = user.checkPassword(req.body.password);
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect username or password." });
       return;

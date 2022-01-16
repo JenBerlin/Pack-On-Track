@@ -6,7 +6,7 @@ const {
     getAllAddresses,
     updateAddress,
     deleteAddress
-} = require("../../../../controllers/api/address")
+} = require("../../../controllers/api/address")
 
 
 const router = Router();

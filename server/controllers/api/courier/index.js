@@ -1,10 +1,8 @@
-const router = require("express").Router();
-
 const { User, Shipment, Courier, Address } = require("../../../../models");
 
 // Get all couriers
 
-router.get("/", async (req, res) => {
+const getAllCouriers = async (req, res) => {
   try {
     const allCouriers = await Courier.findAll({
       attributes: ["id", "courier_name"],
@@ -14,11 +12,11 @@ router.get("/", async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving couriers data from database.");
   }
-});
+}
 
 // Get one courier
 
-router.get("/:id", async (req, res) => {
+const getOneCourier = async (req, res) => {
   try {
     const allCouriers = await Courier.findByPk(req.params.id, {
       attributes: ["id", "courier_name"],
@@ -34,6 +32,9 @@ router.get("/:id", async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving couriers data from database.");
   }
-});
+}
 
-module.exports = router;
+module.exports = {
+  getAllCouriers,
+  getOneCourier
+};
