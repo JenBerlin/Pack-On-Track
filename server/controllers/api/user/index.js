@@ -3,6 +3,7 @@ const sequelize = require("../../../../config/connection");
 
 const { User, Shipment, Courier, Address } = require("../../../../models");
 const auth = require("../../../auth"); // if user not logged in, gets redirected to /login
+const { beforeCreate, beforeUpdate } = require("../../../../server/hooks/");
 
 // Login - POST request
 router.post("/login", async (req, res) => {
@@ -68,7 +69,40 @@ router.post("/signup", async (req, res) => {
 });
 
 // Update User - PUT request
+router.put("/:id", async (req, res) => {
+  try {
+    await User.update(
+      {
+        user_name: req.body.user_name,
+        email: req.body.email,
+        password: req.body.password,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    return res.status(200).json({ data: "Successfully updated user." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to update user." });
+  }
+});
 
 // Delete User - DELETE request
+router.delete("/:id", async (req, res) => {
+  try {
+    await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.status(200).json({ data: "successfully deleted user." });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: "Failed to delete user." });
+  }
+});
 
 module.exports = router;
