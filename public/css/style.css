@@ -1,31 +1,27 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body, html {
+  height: 100%;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+.background {
+  background-image: url("/images/packs_1.jpg");
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
-}
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+ }
 
 
 
-body {
+/* body {
  background-image: url("../images/packs_1.jpg");
- /* background-color: #cccccc; */
-}
+ background-color: #cccccc;
+} */
