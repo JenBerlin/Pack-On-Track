@@ -1,14 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Shipment extends Model {}
 
-User.init(
+Shipment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,43 +11,57 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+    address_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "address",
+        key: "id",
+      },
+    },
+    courier_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "courier",
+        key: "id",
+      },
+    },
+    // Some tracking numbers have letters
+    tricking_number: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    order_number: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+      allowNull: true,
     },
-    password: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8],
-      },
+    },
+    order_made: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    expected_arrival: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
   },
+
   {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData;
-      },
-    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "shipment",
   }
 );
 
-module.exports = User;
+module.exports = Shipment;

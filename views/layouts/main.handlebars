@@ -39,9 +39,12 @@
         <ul class="nav fs-4 text-muted">
           <li class="nav-item text-dark text-uppercase"><a href="#" class="nav-link activen text-dark text-muted" aria-current="page">Home</a></li>
           <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Dashboard</a></li>
-          <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Profile</a></li>
-          <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Login</a></li>
-          <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Logout</a></li>
+        {{#if logged_in}}
+          <li class="nav-item text-uppercase"><a href="/profile" class="nav-link text-dark text-muted">Profile</a></li>
+          <li class="nav-item text-uppercase"><a id="logout" href="#" class="nav-link text-dark text-muted">Logout</a></li>
+        {{else}}
+          <li class="nav-item text-uppercase"><a href="/login" class="nav-link text-dark text-muted">Login</a></li>
+        {{/if}}
         </ul>
       </nav>
   </div>
@@ -104,7 +107,10 @@
       </div>
     </section>
   </footer>
-
+<!-- Render script for logged in users only -->
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
 </body>
 
 </html>

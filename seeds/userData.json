@@ -1,17 +1,17 @@
 [
   {
-    "name": "Sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
+    "user_name": "Quentin Lernantino",
+    "email": "qlernantino@esmt.org",
+    "password": "Lernan?ino"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
+    "user_name": "Florian Schulz",
+    "email": "florian@berlin.com",
+    "password": "FloriantheMan$$$"
   },
   {
-    "name": "Amiko",
-    "email": "amiko2k20@aol.com",
-    "password": "password12345"
+    "user_name": "Carolina Juarez",
+    "email": "carojuarez@coldmail.com",
+    "password": "Jhh?K45$"
   }
 ]
