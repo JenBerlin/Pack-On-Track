@@ -1,12 +1,12 @@
 const { Router } = require("express");
 const {
-  renderShiptmentFormPage,
-  renderEditShiptmentFormPage,
+  renderShipmentFormPage,
+  renderEditShipmentFormPage,
 } = require("../../../../controllers/views/privateController");
 
 const router = Router();
 
-router.get("/", renderShiptmentFormPage);
-router.get("/:id", renderEditShiptmentFormPage);
+router.get("/", renderShipmentFormPage);
+router.get("/:id", renderEditShipmentFormPage);
 
 module.exports = router;
