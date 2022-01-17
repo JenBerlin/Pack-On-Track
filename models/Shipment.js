@@ -33,7 +33,7 @@ Shipment.init(
       },
     },
     // Some tracking numbers have letters
-    tricking_number: {
+    tracking_number: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -44,6 +44,10 @@ Shipment.init(
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    order_from: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     order_made: {
       type: DataTypes.DATE,
