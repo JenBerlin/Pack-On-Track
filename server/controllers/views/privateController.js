@@ -1,5 +1,7 @@
 // const { send } = require("express/lib/response")
 
+const { Address } = require("../../../models");
+
 const renderDashboardPage = (req, res) => {
     console.log(`Dashboard`);
     res.render(`dashboard`, { logged_in: req.session.logged_in });
@@ -8,17 +10,23 @@ const renderProfilePage = (req, res) => {
     console.log(`Profile`);
     res.render(`profile`, { logged_in: req.session.logged_in });
 }
-const renderShiptmentFormPage = (req, res) => {
+const renderShipmentFormPage = (req, res) => {
     console.log(`New Shipment`);
-    res.render(`shipment`, { logged_in: req.session.logged_in });
+    //const couriers = await Courier.findAll()
+    //const variables = {...couriers,  logged_in: req.session.logged_in}
+    res.render(`shipment`, variables);
 }
-const renderEditShiptmentFormPage = (req, res) => {
+const renderEditShipmentFormPage = (req, res) => {
     console.log(`Edit Shipment`);
-    res.render(`shipment`, { logged_in: req.session.logged_in });
+    const id = req.params.id;
+    //const couriers = await Courier.findAll()
+    //const shipment = await Shipment.findByPk(id)
+    //const variables = {...couriers, ...shipment, isEdit: true, logged_in: req.session.logged_in}
+    res.render(`shipment`, variables);
 }
 const renderAddressFormPage = (req, res) => {
     console.log(`New Address`);
-    res.render(`address`, { 
+    res.render(`address`, {
         title: "New Address",
         address: {
             user_id: "",
@@ -32,12 +40,15 @@ const renderAddressFormPage = (req, res) => {
             country: "",
             library_keyword: "",
         },
-        logged_in: req.session.logged_in 
+        logged_in: req.session.logged_in
     });
 }
 const renderEditAddressFormPage = (req, res) => {
     console.log(`Edit Address`);
-    res.render(`address`, { 
+    const id = req.params.id;
+    //fetch the address data from the model
+    //const data = await Address.findByPk(id);
+    const variables = {
         title: "Edit Address",
         address: {
             user_id: 1,
@@ -52,15 +63,16 @@ const renderEditAddressFormPage = (req, res) => {
             library_keyword: "Home",
         },
         isEdit: true,
-        logged_in: req.session.logged_in 
-    });
+        logged_in: req.session.logged_in
+    }
+    res.render(`address`, variables);
 }
 
 module.exports = {
     renderDashboardPage,
     renderProfilePage,
-    renderShiptmentFormPage,
-    renderEditShiptmentFormPage,
+    renderShipmentFormPage,
+    renderEditShipmentFormPage,
     renderAddressFormPage,
     renderEditAddressFormPage
 }
