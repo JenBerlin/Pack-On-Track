@@ -1,16 +1,45 @@
 // const { send } = require("express/lib/response")
+const { Address, Courier, Shipment, User } = require("../../../models");
 
-const { Router } = require("express");
-const { Address, Courier, Shipment } = require("../../../models");
-
-const renderDashboardPage = (req, res) => {
+const renderDashboardPage = async (req, res) => {
   console.log(`Dashboard`);
-  res.render(`dashboard`, { logged_in: req.session.logged_in });
+  const id = req.session.userId;
+  let dashboard = await User.findByPk(id, {
+    include: [
+      {
+        model: Shipment,
+        include: [
+          { model: Courier },
+          { model: Address, attributes: ["library_keyword", "id"] },
+        ],
+      },
+      { model: Address, attributes: ["library_keyword", "id"] },
+    ],
+  });
+  dashboard = dashboard.get({ plain: true });
+  const variables = {
+    dashboard,
+    logged_in: req.session.logged_in,
+  };
+  res.render("dashboard", variables);
 };
-const renderProfilePage = (req, res) => {
+
+const renderProfilePage = async (req, res) => {
   console.log(`Profile`);
-  res.render(`profile`, { logged_in: req.session.logged_in });
+  const id = req.session.userId;
+  console.log(id);
+  let profile = await User.findByPk(id, {
+    include: [{ model: Address, attributes: ["library_keyword", "id"] }],
+  });
+  profile = profile.get({ plain: true });
+  const variables = {
+    profile,
+    logged_in: req.session.logged_in,
+  };
+  console.log(variables);
+  res.render(`profile`, { variables });
 };
+
 const renderShipmentFormPage = (req, res) => {
   console.log(`New Shipment`);
   //const couriers = await Courier.findAll()
@@ -23,14 +52,16 @@ const renderShipmentFormPage = (req, res) => {
 const renderEditShipmentFormPage = async (req, res) => {
   console.log(`Edit Shipment`);
   const id = req.params.id;
-  let couriers = await Courier.findAll();
-  let shipment = await Shipment.findByPk(id);
-  couriers = couriers.map((courier) => courier.get({ plain: true }));
-  //console.log(couriers);
+  let shipment = await Shipment.findByPk(id, {
+    include: [
+      { model: Courier },
+      { model: Address, attributes: ["library_keyword", "id"] },
+    ],
+  });
   shipment = shipment.get({ plain: true });
   const variables = {
-    couriers,
-    ...shipment,
+    title: "Edit Shipment",
+    shipment,
     isEdit: true,
     logged_in: req.session.logged_in,
   };

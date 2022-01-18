@@ -45,6 +45,10 @@ Shipment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    order_from: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     order_made: {
       type: DataTypes.DATE,
       allowNull: true,

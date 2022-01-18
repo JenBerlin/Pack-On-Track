@@ -11,7 +11,7 @@ const createNewShipment = async (req, res) => {
       user_id: req.session.user_id,
       address_id: req.body.address_id,
       courier_id: req.body.courier_id,
-      tricking_number: req.body.tricking_number,
+      tracking_number: req.body.tracking_number,
       order_number: req.body.order_number,
       description: req.body.description,
       order_made: req.body.order_made,
@@ -23,7 +23,7 @@ const createNewShipment = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to create shipment." });
   }
-}
+};
 
 // View(read) a shipment - Get request
 
@@ -35,7 +35,7 @@ const getOneShipment = async (req, res) => {
         "user_id",
         "address_id",
         "courier_id",
-        "tricking_number",
+        "tracking_number",
         "order_number",
         "description",
         "order_made",
@@ -51,7 +51,7 @@ const getOneShipment = async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving shipment data from database.");
   }
-}
+};
 
 // View(read) all shipments - Get request
 
@@ -63,7 +63,7 @@ const getAllShipments = async (req, res) => {
         "user_id",
         "address_id",
         "courier_id",
-        "tricking_number",
+        "tracking_number",
         "order_number",
         "description",
         "order_made",
@@ -75,7 +75,7 @@ const getAllShipments = async (req, res) => {
     console.log(error);
     res.status(500).json("Error retrieving shipments data from database.");
   }
-}
+};
 
 // Update shipment - PUT request
 
@@ -86,7 +86,7 @@ const updateShipment = async (req, res) => {
         user_id: req.session.user_id, // should not be possible to update?
         address_id: req.body.address_id,
         courier_id: req.body.courier_id,
-        tricking_number: req.body.tricking_number,
+        tracking_number: req.body.tracking_number,
         order_number: req.body.order_number,
         description: req.body.description,
         order_made: req.body.order_made,
@@ -103,7 +103,7 @@ const updateShipment = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to update shipment." });
   }
-}
+};
 
 // Delete shipment - DELETE request
 
@@ -119,12 +119,12 @@ const deleteShipment = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to delete shipment." });
   }
-}
+};
 
 module.exports = {
   createNewShipment,
   getOneShipment,
   getAllShipments,
   updateShipment,
-  deleteShipment
+  deleteShipment,
 };

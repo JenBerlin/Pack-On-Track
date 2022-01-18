@@ -37,17 +37,31 @@
         </form>
 
         <form>
-          <div class="col-12 form-floating mb-4">
+          <div class="col-9 form-floating mb-4">
             <input
               type="keyword"
               class="form-control"
-              id="address-streetnumber"
-              placeholder="surname"
+              id="street"
+              placeholder="street"
+              value="{{address.street}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5"
+              for="street"
+            >Street</label>
+          </div>
+
+          <div class="col-3 form-floating mb-4">
+            <input
+              type="keyword"
+              class="form-control"
+              id="streetnumber"
+              placeholder="street number"
               value="{{address.street_number}}"
             />
             <label
               class="text-uppercase text-muted fs-5"
-              for="address-streetnumber"
+              for="streetnumber"
             >Street No.</label>
           </div>
         </form>
@@ -57,12 +71,13 @@
             <input
               type="company"
               class="form-control"
-              id="floatingInputGrid"
+              id="company"
               placeholder="company"
+              value="{{address.company}}"
             />
             <label
               class="text-uppercase text-muted fs-5 ms-3"
-              for="floatingInputGrid"
+              for="company"
             >Company</label>
           </div>
 
@@ -70,12 +85,13 @@
             <input
               type="additionalInfo"
               class="form-control"
-              id="floatingInputGrid"
+              id="additional-line"
               placeholder="additinalInfo"
+              value="{{address.additional_line}}"
             />
             <label
               class="text-uppercase text-muted fs-5 ms-3"
-              for="floatingInputGrid"
+              for="additional-line"
             >Additional info</label>
           </div>
         </form>
@@ -85,12 +101,13 @@
             <input
               type="postcode"
               class="form-control"
-              id="floatingInputGrid"
+              id="post-number"
               placeholder="postcode"
+              value="{{address.post_number}}"
             />
             <label
               class="text-uppercase text-muted fs-5"
-              for="floatingInputGrid"
+              for="post-number"
             >Postal code</label>
           </div>
         </form>
@@ -100,12 +117,13 @@
             <input
               type="city"
               class="form-control"
-              id="floatingInputGrid"
+              id="city"
               placeholder="city"
+              value="{{address.city}}"
             />
             <label
               class="text-uppercase text-muted fs-5 ms-3"
-              for="floatingInputGrid"
+              for="city"
             >City</label>
           </div>
 
@@ -113,12 +131,13 @@
             <input
               type="country"
               class="form-control"
-              id="floatingInputGrid"
+              id="country"
               placeholder="country"
+              value="{{address.country}}"
             />
             <label
               class="text-uppercase text-muted fs-5 ms-3"
-              for="floatingInputGrid"
+              for="country"
             >Country</label>
           </div>
         </form>
@@ -128,12 +147,13 @@
             <input
               type="keyword"
               class="form-control"
-              id="floatingInputGrid"
+              id="library-keyword"
               placeholder="keyword"
+              value="{{address.library_keyword}}"
             />
             <label
               class="text-uppercase text-muted fs-5"
-              for="floatingInputGrid"
+              for="library-keyword"
             >Keyword for this address (e.g. office, home)</label>
           </div>
         </form>
