@@ -15,11 +15,11 @@
                       </div>
                     </div>
                       <div class="bg-light border">
-                        {{#each variables.dashboard.shipments as |shipment| }}
+                        {{#each dashboard.shipments as |shipment| }}
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
+                            <h2 class="accordion-header" id="headingTwo{{shipment.id}}">
 
-                              <button class="accordion-button collapsed text-uppercase fs-5 text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              <button class="accordion-button collapsed text-uppercase fs-5 text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{shipment.id}}" aria-expanded="false" aria-controls="collapseTwo{{shipment.id}}">
                                 Click for more details ...
                               </button>
                               
@@ -65,7 +65,7 @@
                                 </form>  
                               </h2>
 
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                              <div id="collapseTwo{{shipment.id}}" class="accordion-collapse collapse" aria-labelledby="headingTwo{{shipment.id}}" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
 
                                   <form class="row">

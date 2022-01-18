@@ -21,7 +21,7 @@ const renderDashboardPage = async (req, res) => {
     dashboard,
     logged_in: req.session.logged_in,
   };
-  res.render("dashboard", { variables });
+  res.render("dashboard", variables);
 };
 
 const renderProfilePage = async (req, res) => {
