@@ -34,19 +34,19 @@ const renderDashboardPage = async (req, res) => {
 };
 
 const renderProfilePage = async (req, res) => {
-    console.log(`Profile`);
-    const id = req.session.userId;
-    console.log(id);
-    let profile = await User.findByPk(id, {
-        include: [{ model: Address, attributes: ["library_keyword", "id"] }],
-    });
-    profile = profile.get({ plain: true });
-    const variables = {
-        profile,
-        logged_in: req.session.logged_in,
-    };
-    console.log(variables);
-    res.render(`profile`, { variables });
+  console.log(`Profile`);
+  const id = req.session.userId;
+  console.log(req.session);
+  let profile = await User.findByPk(id, {
+    include: [{ model: Address, attributes: ["library_keyword", "id"] }],
+  });
+  profile = profile.get({ plain: true });
+  const variables = {
+    profile,
+    logged_in: req.session.logged_in,
+  };
+  console.log(variables);
+  res.render(`profile`, { variables });
 };
 
 const renderShipmentFormPage = (req, res) => {
