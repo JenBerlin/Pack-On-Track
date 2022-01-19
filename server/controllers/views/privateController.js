@@ -27,7 +27,7 @@ const renderDashboardPage = async (req, res) => {
 const renderProfilePage = async (req, res) => {
   console.log(`Profile`);
   const id = req.session.userId;
-  console.log(id);
+  console.log(req.session);
   let profile = await User.findByPk(id, {
     include: [{ model: Address, attributes: ["library_keyword", "id"] }],
   });
