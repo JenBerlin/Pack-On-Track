@@ -24,20 +24,34 @@ const loginFormHandler = async (event) => {
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
-
-  const name = document.querySelector("#name-signup").value.trim();
+  const user_name = document.querySelector("#username-signup").value.trim();
   const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
+  const confirmPassword = document.querySelector("#confirm-password").value.trim();
 
-  if (name && email && password) {
-    const response = await fetch("/api/users", {
+  if(password!==confirmPassword) {
+    alert("The passwords do not match!");
+    return
+  };
+
+  if (user_name && email && password && confirmPassword) {
+    const response = await fetch("/api/user/signup", {
       method: "POST",
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ user_name, email, password }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
-      document.location.replace("/profile");
+
+      const loginResponse = await fetch("/api/user/login", {
+        method: "POST",
+        body: JSON.stringify({ user_name, password }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if(loginResponse.ok){
+        document.location.replace("/profile");
+      }
+
     } else {
       alert(response.statusText);
     }
@@ -49,5 +63,5 @@ document
   .addEventListener("click", loginFormHandler);
 
 document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+  .getElementById("signup-form")
+  .addEventListener("click", signupFormHandler);
