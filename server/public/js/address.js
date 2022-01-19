@@ -38,10 +38,28 @@ const editAddress = async (event) => {
 }
 
 const getAllFormFields = () => {
-    const name = document.querySelector("#name-signup").value.trim();
-    const email = document.querySelector("#email-signup").value.trim();
-    const password = document.querySelector("#password-signup").value.trim();
-    return { name, email, password }
+    const first_name = document.querySelector("#address-firstname").value.trim();
+    const last_name = document.querySelector("#address-lastname").value.trim();
+    const street = document.querySelector("#street").value.trim();
+    const street_number = document.querySelector("#streetnumber").value.trim();
+    const company = document.querySelector("#company").value.trim();
+    const additional_line = document.querySelector("#additional-line").value.trim();
+    const post_number = document.querySelector("#post-number").value.trim();
+    const city = document.querySelector("#city").value.trim();
+    const country = document.querySelector("#country").value.trim();
+    const library_keyword = document.querySelector("#library-keyword").value.trim();
+    return {
+        first_name,
+        last_name,
+        street,
+        street_number,
+        company,
+        additional_line,
+        post_number,
+        city,
+        country,
+        library_keyword
+    }
 }
 
 
