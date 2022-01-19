@@ -19,24 +19,21 @@ const renderDashboardPage = async (req, res) => {
   dashboard = dashboard.get({ plain: true });
   const variables = {
     dashboard,
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   };
   res.render("dashboard", variables);
 };
 
 const renderProfilePage = async (req, res) => {
-  console.log(`Profile`);
   const id = req.session.userId;
-  console.log(id);
   let profile = await User.findByPk(id, {
     include: [{ model: Address, attributes: ["library_keyword", "id"] }],
   });
   profile = profile.get({ plain: true });
   const variables = {
     profile,
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   };
-  console.log(variables);
   res.render(`profile`, { variables });
 };
 
@@ -63,16 +60,15 @@ const renderEditShipmentFormPage = async (req, res) => {
     title: "Edit Shipment",
     shipment,
     isEdit: true,
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   };
   console.log(variables);
   res.render(`shipment`, variables);
 };
 const renderAddressFormPage = (req, res) => {
-  console.log(`New Address`);
   res.render(`address`, {
     title: "New Address",
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   });
 };
 const renderEditAddressFormPage = async (req, res) => {
@@ -88,9 +84,8 @@ const renderEditAddressFormPage = async (req, res) => {
     title: "Edit Address",
 
     isEdit: true,
-    logged_in: req.session.logged_in,
+    logged_in: req.session.loggedIn,
   };
-  console.log(variables);
   res.render(`address`, variables);
 };
 
