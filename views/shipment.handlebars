@@ -1,82 +1,176 @@
 <div class="row w-100 pt-5 pe-5">
-            <div class="col"></div>
+  <div class="col"></div>
 
-                <div class="col-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">New Shipment</p>
+  <div class="col-8">
+    <div class="card">
+      <div class="card-body">
+        <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">{{title}}</p>
 
-                                    <form class="row">
-                                        <p class="text-uppercase fs-4 text-muted mb-2">Shipment details</p>
-                                        <div class="col-5 form-floating mb-5">
-                                            <input type="trackingnumber" class="form-control" id="floatingInputGrid" placeholder="tracking number">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Tracking number</label>
-                                        </div>
+        <form class="row">
+          <p class="text-uppercase fs-4 text-muted mb-2">Shipment details</p>
+          <div class="col-5 form-floating mb-5">
+            <input
+              type="trackingnumber"
+              class="form-control"
+              id="tracking-number"
+              placeholder="tracking number"
+              value="{{shipment.tracking_number}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="tracking-number"
+            >Tracking number</label>
+          </div>
 
-                                        <div class="dropdown col-3 form-floating mb-5">
-                                            <a class="btn btn-white dropdown-toggle text-uppercase text-muted fs-5 pt-3 pb-2 border" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <span class="ps-2 pe-5"> Courier service by ...</span>
-                                            </a>
-                                                
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item text-uppercase text-muted fs-5" href="#">DHL</i></a></li>
-                                                <li><a class="dropdown-item text-uppercase text-muted fs-5" href="#">Hermes</a></li>
-                                                <li><a class="dropdown-item text-uppercase text-muted fs-5" href="#">UPS</a></li>
-                                            </ul>
-                                        </div>
+          <!--<div class="dropdown col-3 form-floating mb-5">
+            <a
+              class="btn btn-white dropdown-toggle text-uppercase text-muted fs-5 pt-3 pb-2 border"
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="ps-2 pe-5"> Courier service by ...</span>
+            </a>
 
-                                        <div class="col-3 form-floating mb-5">
-                                            <input type="date-arrival" class="form-control" id="floatingInputGrid" placeholder="date-arrival">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Day of arrival</label>
-                                        </div>
-                                    </form>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a
+                  class="dropdown-item text-uppercase text-muted fs-5"
+                  href="#"
+                >DHL</a></li>
+              <li><a
+                  class="dropdown-item text-uppercase text-muted fs-5"
+                  href="#"
+                >Hermes</a></li>
+              <li><a
+                  class="dropdown-item text-uppercase text-muted fs-5"
+                  href="#"
+                >UPS</a></li>
+            </ul>
+          </div>-->
 
-                                    <form class="row">
-                                        <p class="text-uppercase fs-4 text-muted mb-2">Order details</p>
-                                        <div class="col-5 form-floating mb-4">
-                                            <input type="orderDetails" class="form-control" id="floatingInputGrid" placeholder="order-deteails">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Ordered from ...</label>
-                                        </div>
+          <div class="col-3 form-floating mb-5">
+            <select
+              class="form-select text-uppercase text-muted text-center fs-5"
+              id="courierChoice"
+            >
+              <option selected>Courier Service by ...</option>
+              <option value="1">DHL</option>
+              <option value="2">Hermes</option>
+              <option value="3">Ups</option>
+            </select>
+          </div>
 
-                                        <div class="col-3 form-floating mb-4">
-                                            <input type="orderNumber" class="form-control" id="floatingInputGrid" placeholder="order-number">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order number</label>
-                                        </div>
+          <div class="col-3 form-floating mb-5">
+            <input
+              type="date-arrival"
+              class="form-control"
+              id="date-arrival"
+              placeholder="date-arrival"
+              value="{{shipment.expected_arrival}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="date-arrival"
+            >Day of arrival</label>
+          </div>
+        </form>
 
-                                        <div class="col-3 form-floating mb-4">
-                                            <input type="date-made" class="form-control" id="floatingInputGrid" placeholder="order-made">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order placed on ...</label>
-                                        </div>
-                                    </form>
+        <form class="row">
+          <p class="text-uppercase fs-4 text-muted mb-2">Order details</p>
+          <div class="col-5 form-floating mb-4">
+            <input
+              type="orderDetails"
+              class="form-control"
+              id="order-from"
+              placeholder="order-from"
+              value="{{shipment.order_from}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="order-from"
+            >Ordered from ...</label>
+          </div>
 
-                                    <form class="row">
-                                        <div class="col-11 form-floating mb-5">
-                                            <input type="description" class="form-control" id="floatingInputGrid" placeholder="description">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order description (e.g. Shoes, Laptop, Present for Swapnil)</label>
-                                        </div>
-                                    </form>
+          <div class="col-3 form-floating mb-4">
+            <input
+              type="orderNumber"
+              class="form-control"
+              id="order-number"
+              placeholder="order-number"
+              value="{{shipment.order_number}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="order-number"
+            >Order number</label>
+          </div>
 
-                                    <form class="row">
-                                        <p class="text-uppercase fs-4 text-muted mb-2">Shipment to goes to the following address and receiver:</p>
-                                        <div class="col-5 form-floating mb-4">
-                                            <input type="orderDetails" class="form-control" id="floatingInputGrid" placeholder="order-deteails">
-                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Ordered from ...</label>
-                                        </div>
-                                        
-                                        <div class="col-1 form-floating mb-4">
-                                        <p class="text-uppercase text-muted fs-5 ms-4">OR</p>
-                                        </div>
+          <div class="col-3 form-floating mb-4">
+            <input
+              type="date-made"
+              class="form-control"
+              id="order-made"
+              placeholder="order-made"
+              value="{{shipment.order_made}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="order-made"
+            >Order placed on ...</label>
+          </div>
+        </form>
 
-                                        <div class="col-3 form-floating mb-4">
-                                        <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</a>
-                                        </div>
-                                    </form>
-                                    
+        <form class="row">
+          <div class="col-11 form-floating mb-5">
+            <input
+              type="description"
+              class="form-control"
+              id="description"
+              placeholder="description"
+              value="{{shipment.description}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="description"
+            >Order description (e.g. Shoes, Laptop, Present for Swapnil)</label>
+          </div>
+        </form>
 
-                                <div>
-                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-save"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+        <form class="row">
+          <p class="text-uppercase fs-4 text-muted mb-2">Shipment goes to the
+            following address and receiver:</p>
+          <div class="col-5 form-floating mb-4">
+            <input
+              type="orderDetails"
+              class="form-control"
+              id="floatingInputGrid"
+              placeholder="order-deteails"
+              value="{{address.library_keyword}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="floatingInputGrid"
+            >Keyword</label>
+          </div>
+
+          <div class="col-1 form-floating mb-4">
+            <p class="text-uppercase text-muted fs-5 ms-4">OR</p>
+          </div>
+
+          <div class="col-3 form-floating mb-4">
+            <a href="#" class="btn btn-lg btn-secondary text-uppercase">+
+              Keyword / Address</a>
+          </div>
+        </form>
+
+        <div>
+          <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i
+              class="far fa-save"
+            ></i></a>
         </div>
+      </div>
+    </div>
+  </div>
+</div>

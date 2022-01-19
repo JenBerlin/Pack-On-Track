@@ -8,67 +8,168 @@
 
         <form class="row">
           <div class="col-6 form-floating mb-4">
-            <input type="firstname" class="form-control" id="address-firstname" placeholder="first name"
-              value="{{address.first_name}}">
-            <label class="text-uppercase text-muted fs-5 ms-3" for="address-firstname">First name</label>
+            <input
+              type="firstname"
+              class="form-control"
+              id="address-firstname"
+              placeholder="first name"
+              value="{{address.first_name}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="address-firstname"
+            >First name</label>
           </div>
 
           <div class="col-6 form-floating mb-4">
-            <input type="keyword" class="form-control" id="address-lastname" placeholder="surname" value="{{address.last_name}}">
-            <label class="text-uppercase text-muted fs-5 ms-3" for="address-lastname">Surname</label>
+            <input
+              type="keyword"
+              class="form-control"
+              id="address-lastname"
+              placeholder="surname"
+              value="{{address.last_name}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="address-lastname"
+            >Surname</label>
           </div>
         </form>
 
         <form>
-          <div class="col-12 form-floating mb-4">
-            <input type="keyword" class="form-control" id="address-streetnumber" placeholder="surname" value="{{address.street_number}}">
-            <label class="text-uppercase text-muted fs-5" for="address-streetnumber">Street No.</label>
+          <div class="col-9 form-floating mb-4">
+            <input
+              type="keyword"
+              class="form-control"
+              id="street"
+              placeholder="street"
+              value="{{address.street}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5"
+              for="street"
+            >Street</label>
+          </div>
+
+          <div class="col-3 form-floating mb-4">
+            <input
+              type="keyword"
+              class="form-control"
+              id="streetnumber"
+              placeholder="street number"
+              value="{{address.street_number}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5"
+              for="streetnumber"
+            >Street No.</label>
           </div>
         </form>
 
         <form class="row">
           <div class="col-6 form-floating mb-4">
-            <input type="company" class="form-control" id="floatingInputGrid" placeholder="company">
-            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Company</label>
+            <input
+              type="company"
+              class="form-control"
+              id="company"
+              placeholder="company"
+              value="{{address.company}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="company"
+            >Company</label>
           </div>
 
           <div class="col-6 form-floating mb-4">
-            <input type="additionalInfo" class="form-control" id="floatingInputGrid" placeholder="additinalInfo">
-            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Additional info</label>
+            <input
+              type="additionalInfo"
+              class="form-control"
+              id="additional-line"
+              placeholder="additinalInfo"
+              value="{{address.additional_line}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="additional-line"
+            >Additional info</label>
           </div>
         </form>
 
         <form>
           <div class="col-3 form-floating mb-4">
-            <input type="postcode" class="form-control" id="floatingInputGrid" placeholder="postcode">
-            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Postal code</label>
+            <input
+              type="postcode"
+              class="form-control"
+              id="post-number"
+              placeholder="postcode"
+              value="{{address.post_number}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5"
+              for="post-number"
+            >Postal code</label>
           </div>
         </form>
 
         <form class="row">
           <div class="col-6 form-floating mb-5">
-            <input type="city" class="form-control" id="floatingInputGrid" placeholder="city">
-            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">City</label>
+            <input
+              type="city"
+              class="form-control"
+              id="city"
+              placeholder="city"
+              value="{{address.city}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="city"
+            >City</label>
           </div>
 
           <div class="col-6 form-floating mb-5">
-            <input type="country" class="form-control" id="floatingInputGrid" placeholder="country">
-            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Country</label>
+            <input
+              type="country"
+              class="form-control"
+              id="country"
+              placeholder="country"
+              value="{{address.country}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5 ms-3"
+              for="country"
+            >Country</label>
           </div>
         </form>
 
         <form>
           <div class="col-6 form-floating mb-5">
-            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="keyword" >
-            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Keyword for this address (e.g. office,
-              home)</label>
+            <input
+              type="keyword"
+              class="form-control"
+              id="library-keyword"
+              placeholder="keyword"
+              value="{{address.library_keyword}}"
+            />
+            <label
+              class="text-uppercase text-muted fs-5"
+              for="library-keyword"
+            >Keyword for this address (e.g. office, home)</label>
           </div>
         </form>
         <div>
           {{#if isEdit}}
-          <a href="#" id="edit-btn" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-edit"></i></a>
+            <a
+              href="#"
+              id="edit-btn"
+              class="btn btn-lg btn-secondary text-uppercase"
+            ><i class="far fa-edit"></i></a>
           {{else}}
-          <a href="#" id="create-btn" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-save"></i></a>
+            <a
+              href="#"
+              id="create-btn"
+              class="btn btn-lg btn-secondary text-uppercase"
+            ><i class="far fa-save"></i></a>
           {{/if}}
         </div>
       </div>
