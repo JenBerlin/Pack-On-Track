@@ -1,47 +1,31 @@
-const newFormHandler = async (event) => {
+const editUser = async (event) => {
   event.preventDefault();
+  const userInfo = getAllFormFields();
+  const isValid = checkIfValid(userInfo);
+  if (isValid) {
+      const response = await fetch(`/api/user/${id}`, {
+          method: "PUT",
+          body: JSON.stringify(userInfo),
+          headers: { "Content-Type": "application/json" },
+      });
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
-
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
+      if (response.ok) {
+          document.location.replace("/profile");
+      } else {
+          alert(response.statusText);
+      }
   }
-};
+}
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+const getAllFormFields = () => {
+  const name = document.querySelector("#name-signup").value.trim();
+  const email = document.querySelector("#email-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
+  return { name, email, password }
+}
 
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
-  }
-};
 
 document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+  .getElementById("edit-btn")
+  .addEventListener("submit", editUser);

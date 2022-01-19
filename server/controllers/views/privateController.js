@@ -4,10 +4,14 @@ const { Address } = require("../../../models");
 
 const renderDashboardPage = (req, res) => {
     console.log(`Dashboard`);
+    const user_id = req.session.user_id;
     res.render(`dashboard`, { logged_in: req.session.logged_in });
 }
 const renderProfilePage = (req, res) => {
     console.log(`Profile`);
+    const user_id = req.session.user_id;
+    //const shipment = await User.findByPk(id)
+    //const variables = {...couriers, ...shipment, isEdit: true, logged_in: req.session.logged_in}
     res.render(`profile`, { logged_in: req.session.logged_in });
 }
 const renderShipmentFormPage = (req, res) => {
