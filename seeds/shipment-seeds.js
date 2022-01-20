@@ -9,6 +9,7 @@ const shipmentData = [
     order_from: "My Photo Shop",
     description: "my new film lens",
     order_made: "12/1/2022",
+    expected_arrival: "8/2/2022",
   },
   {
     user_id: 1,
@@ -18,6 +19,7 @@ const shipmentData = [
     order_from: "My Dream Sneakers",
     order_number: "B1505",
     description: "the cool sneakers I bought for Julia",
+    order_made: "11/1/2022",
     expected_arrival: "1/2/2022",
   },
   {
@@ -25,9 +27,10 @@ const shipmentData = [
     address_id: 3,
     courier_id: 3,
     tracking_number: "H1020650004908302017",
-    order_from: "My Dream Sneakers",
+    order_from: "My Secret Shop",
     description: "top secret order... tell no one!",
     order_made: "12/1/2022",
+    expected_arrival: "4/2/2022",
   },
 ];
 

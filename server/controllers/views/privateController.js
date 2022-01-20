@@ -2,47 +2,39 @@
 const { Address, Courier, Shipment, User } = require("../../../models");
 
 const renderDashboardPage = async (req, res) => {
-    try {
-        const id = req.session.userId;
-        let dashboard = await User.findByPk(id, {
-            include: [
-                {
-                    model: Shipment,
-                    include: [
-                        { model: Courier },
-                        { model: Address, attributes: ["library_keyword", "id"] },
-                    ],
-                },
-                { model: Address, attributes: ["library_keyword", "id"] },
-            ],
-        });
-        dashboard = dashboard.get({ plain: true });
-        const variables = {
-            dashboard,
-            logged_in: req.session.logged_in,
-        };
-        res.render("dashboard", variables);
-
-    } catch (e) {
-        console.log(e);
-        res.status(500).json(e);
-    }
+  console.log(`Dashboard`);
+  const id = req.session.userId;
+  let dashboard = await User.findByPk(id, {
+    include: [
+      {
+        model: Shipment,
+        include: [
+          { model: Courier },
+          { model: Address, attributes: ["library_keyword", "id"] },
+        ],
+      },
+      { model: Address, attributes: ["library_keyword", "id"] },
+    ],
+  });
+  dashboard = dashboard.get({ plain: true });
+  const variables = {
+    dashboard,
+    logged_in: req.session.loggedIn,
+  };
+  res.render("dashboard", variables);
 };
 
 const renderProfilePage = async (req, res) => {
-    console.log(`Profile`);
-    const id = req.session.userId;
-    console.log(req.session);
-    let profile = await User.findByPk(id, {
-        include: [{ model: Address, attributes: ["library_keyword", "id"] }],
-    });
-    profile = profile.get({ plain: true });
-    const variables = {
-        profile,
-        logged_in: req.session.logged_in,
-    };
-    console.log(variables);
-    res.render(`profile`, { variables });
+  const id = req.session.userId;
+  let profile = await User.findByPk(id, {
+    include: [{ model: Address, attributes: ["library_keyword", "id"] }],
+  });
+  profile = profile.get({ plain: true });
+  const variables = {
+    profile,
+    logged_in: req.session.loggedIn,
+  };
+  res.render(`profile`, variables);
 };
 
 const renderShipmentFormPage = async (req, res) => {
@@ -100,11 +92,10 @@ const renderEditAddressFormPage = async (req, res) => {
         address,
         title: "Edit Address",
 
-        isEdit: true,
-        logged_in: req.session.logged_in,
-    };
-    console.log(variables);
-    res.render(`address`, variables);
+    isEdit: true,
+    logged_in: req.session.loggedIn,
+  };
+  res.render(`address`, variables);
 };
 
 module.exports = {

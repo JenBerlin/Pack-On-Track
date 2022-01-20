@@ -8,8 +8,7 @@
 
                                 <form class="row">
                                     <div class="col-10 form-floating mb-5">
-                                        <!-- Pre-filled from database -->
-                                        <input type="username" class="form-control" id="user-name" placeholder="username" value="{{user.user_name}}">
+                                        <input type="username" class="form-control" id="user-name" placeholder="username" value="{{profile.user_name}}">
                                         <label class="text-uppercase text-muted fs-5" for="user-name">Username</label>
                                     </div>
 
@@ -20,8 +19,7 @@
 
                                 <form class="row">
                                     <div class="col-10 form-floating ">
-                                        <input type="email" class="form-control" id="email" placeholder="email address" value="{{user.email}}">
-                                        <!-- Pre-filled from database -->
+                                        <input type="email" class="form-control" id="email" placeholder="email address" value="{{profile.email}}">
                                         <label class="text-uppercase text-muted fs-5" for="email">Email address</label>
                                     </div>
                                 
@@ -40,6 +38,7 @@
                             <div class="card-body">
                                 <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Address library</p>
 
+                                {{#each profile.addresses as |address|}}
                                     <form class="row">
                                         <div class="col-auto">
                                             <p class="text-uppercase fs-5 text-muted mb-5">Keyword:</p>
@@ -48,7 +47,7 @@
                                         <!-- Dropdown -->
                                         <div class="col-6 form-floating mb-5">
                                             <label for="inputKeyword" class="visually-hidden">Keyword</label>
-                                            <input type="keyword" class="form-control" id="inputKeyword" placeholder="Keyword">
+                                            <p type="keyword" class="form-control" id="inputKeyword" placeholder="Keyword">{{address.library_keyword}}</p>
                                         </div>
 
                                         <div class="col-auto">
@@ -59,6 +58,7 @@
                                             <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </form>
+                                    {{/each}}
 
                                 <div class="mb-2">
                                     <a href="#" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>

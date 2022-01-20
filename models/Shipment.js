@@ -51,11 +51,11 @@ Shipment.init(
     },
     order_made: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
     },
     expected_arrival: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
     },
   },
 
