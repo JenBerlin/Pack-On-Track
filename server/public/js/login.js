@@ -49,7 +49,7 @@ const signupFormHandler = async (event) => {
       });
 
       if(loginResponse.ok){
-        document.location.replace("/profile");
+        document.location.replace("/dashboard");
       }
 
     } else {
