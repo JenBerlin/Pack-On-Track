@@ -1,99 +1,114 @@
-    <div class="row pt-5 pe-5">
-        <div class="col"></div>
+<div class="row pt-5 pe-5">
+  <div class="col"></div>
 
-          <div class="col-12 ms-4">
-            <div class="card">
-              <div class="card-body">
-                  <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Dashboard</p>
-                    <div class="row">
-                      <div class="col-2 mb-4">
-                          <a href="/shipment" class="btn btn-lg btn-secondary text-uppercase">+ Shipment</a>
-                      </div>
+  <div class="col-12 ms-4">
+    <div class="card">
+      <div class="card-body">
+        <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Dashboard</p>
+        <div class="row">
+          <div class="col-2 mb-4">
+            <a href="/shipment" class="btn btn-lg btn-secondary text-uppercase">+ Shipment</a>
+          </div>
 
-                      <div class="col-2 mb-4">
-                        <a href="/address" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
-                      </div>
-                    </div>
-                      <div class="bg-light border">
-                        {{#each dashboard.shipments as |shipment| }}
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo{{shipment.id}}">
+          <div class="col-2 mb-4">
+            <a href="/address" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
+          </div>
+        </div>
+        <div class="bg-light border">
+          {{#each dashboard.shipments as |shipment| }}
+          console.log(dashboard.shipments)
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo{{shipment.id}}">
 
-                              <button class="accordion-button collapsed text-uppercase fs-5 text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{shipment.id}}" aria-expanded="false" aria-controls="collapseTwo{{shipment.id}}">
-                                Click for more details ...
-                              </button>
-                              
-                                <form class="row">
-                                  
-                                  <!-- From database -->
-                                  <div class="col-2 form-floating mb-2 mt-3 ms-3">
-                                    <p type="text" class="form-control" id="expected-arrival" placeholder="expected-arrival">{{formatDate shipment.expected_arrival}}</p>
-                                    <label class="text-uppercase text-muted fs-5 ms-3" for="expected-arrival">Day of arrival</label>
-                                  </div>
-                                  
-                                  <!-- From database -->
-                                  <div class="col-md-3 form-floating mb-2 mt-3">
-                                      <p type="text" class="form-control" id="order-from" placeholder="order-from">{{shipment.order_from}}</p>
-                                      <label class="text-uppercase text-muted fs-5 ms-3" for="order-from">Ordered from ...</label>
-                                  </div>
-                                  
-                                  <!-- From database -->
-                                  <div class="col-1 form-floating mb-2 mt-3">
-                                    <p type="text" class="form-control" id="floatingInputGrid" placeholder="date-arrival">{{shipment.courier.courier_name}}</p>
-                                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Courier</label>
-                                  </div>
+              <button class="accordion-button collapsed text-uppercase fs-5 text-muted" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapseTwo{{shipment.id}}" aria-expanded="false"
+                aria-controls="collapseTwo{{shipment.id}}">
+                Click for more details ...
+              </button>
 
-                                  <div class="col-2 form-floating mb-2 mt-3">
-                                    <p type="text" class="form-control" id="floatingInputGrid" placeholder="keyword">{{shipment.address.library_keyword}}</p>
-                                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Address keyword</label>
-                                  </div>
+              <form class="row">
 
-                                  <div class="col-2 form-floating mb-2 mt-3">
-                                    <p type="trackingnumber" class="form-control" id="tracking-number" placeholder="tracking number">{{shipment.tracking_number}}</p>
-                                    <label class="text-uppercase text-muted fs-5 ms-3" for="tracking-number">Tracking number</label>
-                                  </div>
+                <!-- From database -->
+                <div class="col-2 form-floating mb-2 mt-3 ms-3">
+                  <p type="text" class="form-control" id="expected-arrival" placeholder="expected-arrival">{{formatDate
+                    shipment.expected_arrival}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-3" for="expected-arrival">Day of arrival</label>
+                </div>
 
-                                  <div class="col-auto mb-2 mt-3">
-                                    <a href="/shipment/{{shipment.id}}" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-edit"></i></a>
-                                  </div>
+                <!-- From database -->
+                <div class="col-md-3 form-floating mb-2 mt-3">
+                  <p type="text" class="form-control" id="order-from" placeholder="order-from">{{shipment.order_from}}
+                  </p>
+                  <label class="text-uppercase text-muted fs-5 ms-3" for="order-from">Ordered from ...</label>
+                </div>
 
-                                  <div data-id="{{shipment.id}}" class="col-auto mb-2 mt-3 shipment-delete">
-                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
-                                  </div>
-                                  
-                                
-                                </form>  
-                              </h2>
+                <!-- From database -->
+                <div class="col-1 form-floating mb-2 mt-3">
+                  <p type="text" class="form-control" id="floatingInputGrid" placeholder="date-arrival">
+                    {{shipment.courier.courier_name}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Courier</label>
+                </div>
 
-                              <div id="collapseTwo{{shipment.id}}" class="accordion-collapse collapse" aria-labelledby="headingTwo{{shipment.id}}" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
+                <div class="col-2 form-floating mb-2 mt-3">
+                  <p type="text" class="form-control" id="floatingInputGrid" placeholder="keyword">
+                    {{shipment.address.library_keyword}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Address keyword</label>
+                </div>
 
-                                  <form class="row">
-                                    <div class="col-5 form-floating mb-2 mt-1">
-                                      <p type="text" class="form-control" id="description" placeholder="description" value="">{{shipment.description}}</p>
-                                      <label class="text-uppercase text-muted fs-5 ms-3 text-wrap" for="description">Order description</label>
-                                    </div>
+                <div class="col-2 form-floating mb-2 mt-3">
+                  <p type="trackingnumber" class="form-control" id="tracking-number" placeholder="tracking number">
+                    {{shipment.tracking_number}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-3" for="tracking-number">Tracking number</label>
+                </div>
 
-                                    <div class="col-3 form-floating mb-2 mt-1">
-                                        <p type="text" class="form-control" id="floatingInputGrid" placeholder="order-number">{{shipment.order_number}}</p>
-                                        <label class="text-uppercase text-muted fs-5 ms-3" for="order-number">Order number</label>
-                                    </div>
+                <div class="col-auto mb-2 mt-3">
+                  <a href="/shipment/{{shipment.id}}" class="btn btn-lg btn-secondary text-uppercase"><i
+                      class="far fa-edit"></i></a>
+                </div>
 
-                                    <div class="col-3 form-floating mb-2 mt-1 ms-3">
-                                        <p type="date-made" class="form-control" id="floatingInputGrid" placeholder="order-made">{{formatDate shipment.order_made}}</p>
-                                        <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order placed on ...</label>
-                                    </div>
-                                    
-                                  </form>
-                                  
-</div>
-</div>
+                <div data-id="{{shipment.id}}" class="col-auto mb-2 mt-3 shipment-delete">
+                  <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
+                </div>
 
 
-                        </div>
-                        {{/each }}
-                      </div>                                    
+              </form>
+            </h2>
+
+            <div id="collapseTwo{{shipment.id}}" class="accordion-collapse collapse"
+              aria-labelledby="headingTwo{{shipment.id}}" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <form class="row">
+                  <div class="col-5 form-floating mb-2 mt-1">
+                    <p type="text" class="form-control" id="description" placeholder="description" value="">
+                      {{shipment.description}}</p>
+                    <label class="text-uppercase text-muted fs-5 ms-3 text-wrap" for="description">Order
+                      description</label>
+                  </div>
+
+                  <div class="col-3 form-floating mb-2 mt-1">
+                    <p type="text" class="form-control" id="floatingInputGrid" placeholder="order-number">
+                      {{shipment.order_number}}</p>
+                    <label class="text-uppercase text-muted fs-5 ms-3" for="order-number">Order number</label>
+                  </div>
+
+                  <div class="col-3 form-floating mb-2 mt-1 ms-3">
+                    <p type="date-made" class="form-control" id="floatingInputGrid" placeholder="order-made">
+                      {{formatDate shipment.order_made}}</p>
+                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order placed on
+                      ...</label>
+                  </div>
+
+                </form>
+
               </div>
             </div>
+
+
           </div>
+          {{/each }}
+        </div>
+      </div>
     </div>
+  </div>
+</div>
