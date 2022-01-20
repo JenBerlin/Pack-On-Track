@@ -3,9 +3,7 @@ const { Address, Courier, Shipment, User } = require("../../../models");
 
 const renderDashboardPage = async (req, res) => {
     try {
-        console.log(`Dashboard`);
         const id = req.session.userId;
-        console.log(id)
         let dashboard = await User.findByPk(id, {
             include: [
                 {
@@ -18,14 +16,12 @@ const renderDashboardPage = async (req, res) => {
                 { model: Address, attributes: ["library_keyword", "id"] },
             ],
         });
-        console.log(2)
         dashboard = dashboard.get({ plain: true });
-        console.log(dashboard)
         const variables = {
             dashboard,
             logged_in: req.session.logged_in,
         };
-        // res.render("dashboard", variables);
+        res.render("dashboard", variables);
 
     } catch (e) {
         console.log(e);
@@ -34,32 +30,33 @@ const renderDashboardPage = async (req, res) => {
 };
 
 const renderProfilePage = async (req, res) => {
-  console.log(`Profile`);
-  const id = req.session.userId;
-  console.log(req.session);
-  let profile = await User.findByPk(id, {
-    include: [{ model: Address, attributes: ["library_keyword", "id"] }],
-  });
-  profile = profile.get({ plain: true });
-  const variables = {
-    profile,
-    logged_in: req.session.logged_in,
-  };
-  console.log(variables);
-  res.render(`profile`, { variables });
+    console.log(`Profile`);
+    const id = req.session.userId;
+    console.log(req.session);
+    let profile = await User.findByPk(id, {
+        include: [{ model: Address, attributes: ["library_keyword", "id"] }],
+    });
+    profile = profile.get({ plain: true });
+    const variables = {
+        profile,
+        logged_in: req.session.logged_in,
+    };
+    console.log(variables);
+    res.render(`profile`, { variables });
 };
 
-const renderShipmentFormPage = (req, res) => {
-    console.log(`New Shipment`);
-    //const couriers = await Courier.findAll()
+const renderShipmentFormPage = async (req, res) => {
+    let couriers = await Courier.findAll()
     //const variables = {...couriers,  logged_in: req.session.logged_in}
+    couriers = couriers.map(courier => courier.get({ plain: true }))
     res.render(`shipment`, {
         title: "New Shipment",
+        couriers,
         logged_in: req.session.logged_in,
     });
 };
 const renderEditShipmentFormPage = async (req, res) => {
-    console.log(`Edit Shipment`);
+    let couriers = await Courier.findAll()
     const id = req.params.id;
     let shipment = await Shipment.findByPk(id, {
         include: [
@@ -67,9 +64,16 @@ const renderEditShipmentFormPage = async (req, res) => {
             { model: Address, attributes: ["library_keyword", "id"] },
         ],
     });
+    couriers = couriers.map(courier => courier.get({ plain: true }))
     shipment = shipment.get({ plain: true });
+
+    couriers.forEach(courier => {
+        courier.isSelected = shipment.courier.id == courier.id;
+    })
+
     const variables = {
         title: "Edit Shipment",
+        couriers,
         shipment,
         isEdit: true,
         logged_in: req.session.logged_in,
