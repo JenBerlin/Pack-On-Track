@@ -34,7 +34,7 @@ const renderProfilePage = async (req, res) => {
     profile,
     logged_in: req.session.loggedIn,
   };
-  res.render(`profile`, { variables });
+  res.render(`profile`, variables);
 };
 
 const renderShipmentFormPage = (req, res) => {
