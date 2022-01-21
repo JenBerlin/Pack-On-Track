@@ -1,7 +1,6 @@
 
 var invalidFields = [];
 const createNewAdress = async (event) => {
-    console.log("button pressed!")
     event.preventDefault();
     const addressInfo = getAllFormFields();
     const isValid = checkIfValid(addressInfo);
@@ -75,8 +74,7 @@ const getAllFormFields = () => {
 
 const getIdFromURL = () => {
     var baseUrl = (window.location).href; // You can also use document.URL
-    var id = baseUrl.split("address/")[1];
-    console.log(id);
+    var id = baseUrl.split("shipment/")[1].replace("#", "");
     return id
 }
 
@@ -97,13 +95,11 @@ const checkIfValid = (addressInfo) => {
 const editBtn = document.querySelector("#edit-btn")
 
 if (editBtn) {
-    console.log("Edit")
     editBtn.addEventListener("click", editAddress);
 }
 
 const createBtn = document.querySelector("#create-btn")
 
 if (createBtn) {
-    console.log("Create")
     createBtn.addEventListener("click", createNewAdress);
 }

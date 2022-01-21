@@ -3,17 +3,20 @@ const editUser = async (event) => {
   const userInfo = getAllFormFields();
   const isValid = checkIfValid(userInfo);
   if (isValid) {
-      const response = await fetch(`/api/user/${id}`, {
-          method: "PUT",
-          body: JSON.stringify(userInfo),
-          headers: { "Content-Type": "application/json" },
-      });
+    const response = await fetch(`/api/user/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(userInfo),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      if (response.ok) {
-          document.location.replace("/profile");
-      } else {
-          alert(response.statusText);
-      }
+    if (response.ok) {
+      document.location.replace("/profile");
+    } else {
+      alert(response.statusText);
+    }
+  } {
+    alert(`Please check out invalid/empty fields: ${invalidFields.join(",")}`);
+    invalidFields = [];
   }
 }
 
