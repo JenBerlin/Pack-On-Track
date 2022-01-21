@@ -29,6 +29,7 @@ const editAddress = async (event) => {
     const addressInfo = getAllFormFields();
     addressInfo.id = id;
     const isValid = checkIfValid(addressInfo);
+    console.log(isValid)
     if (isValid) {
         const response = await fetch(`/api/address/${id}`, {
             method: "PUT",
@@ -41,6 +42,9 @@ const editAddress = async (event) => {
         } else {
             alert(response.statusText);
         }
+    } else {
+        alert(`Please check out invalid/empty fields: ${invalidFields.join(",")}`);
+        invalidFields = [];
     }
 }
 
@@ -72,6 +76,7 @@ const getAllFormFields = () => {
 const getIdFromURL = () => {
     var baseUrl = (window.location).href; // You can also use document.URL
     var id = baseUrl.split("address/")[1];
+    console.log(id);
     return id
 }
 

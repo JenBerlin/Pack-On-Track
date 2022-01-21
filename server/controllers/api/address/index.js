@@ -6,9 +6,10 @@ const auth = require("../../../auth");
 // Create address - POST request
 
 const createNewAddress = async (req, res) => {
+  const userId = req.session.userId;
   try {
     const newAddress = {
-      user_id: req.session.user_id,
+      user_id: userId,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       street: req.body.street,
@@ -20,6 +21,7 @@ const createNewAddress = async (req, res) => {
       country: req.body.country,
       library_keyword: req.body.library_keyword,
     };
+    console.log(newAddress);
     const successAddress = await Address.create(newAddress);
     return res.status(200).json(successAddress.get({ plain: true }));
   } catch (error) {

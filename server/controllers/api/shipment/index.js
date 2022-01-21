@@ -6,9 +6,10 @@ const auth = require("../../../auth");
 // Create shipment - POST request
 
 const createNewShipment = async (req, res) => {
+  const userId = req.session.userId;
   try {
     const newShipment = {
-      user_id: req.session.user_id,
+      user_id: userId,
       address_id: req.body.address_id,
       courier_id: req.body.courier_id,
       tracking_number: req.body.tracking_number,
