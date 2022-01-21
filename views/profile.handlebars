@@ -41,7 +41,7 @@
                 <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Address library</p>
 
                 {{#each profile.addresses as |address|}}
-                <form class="row">
+                <div class="row">
                     <div class="col-auto">
                         <p class="text-uppercase fs-5 text-muted mb-5">Keyword:</p>
                     </div>
@@ -58,10 +58,10 @@
                                 class="far fa-edit"></i></a>
                     </div>
 
-                    <div data-id="{{shipment.id}}" class="col-auto address-delete">
-                        <a href="" class="btn btn-lg btn-secondary text-uppercase mt-2"><i class="far fa-trash-alt"></i></a>
+                    <div  class="col-auto ">
+                        <a data-id="{{address.id}}" href="" class="btn btn-lg btn-secondary text-uppercase mt-2 address-delete"><i class="far fa-trash-alt"></i></a>
                     </div>
-                </form>
+                </div>
                 {{/each}}
 
                 <div class="mb-2">

@@ -32,6 +32,7 @@ const getAllFormFields = () => {
   const deleteAddress = async (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("data-id");
+    console.log(id)
     // Send a DELETE request to the API endpoint
     const response = await fetch(`/api/address/${id}`, {
         method: "DELETE",
