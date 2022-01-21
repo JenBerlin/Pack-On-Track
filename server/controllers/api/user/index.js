@@ -65,16 +65,15 @@ const userSignup = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to create user." });
   }
-}
+};
 
 // Update User - PUT request
 const updateUser = async (req, res) => {
   try {
     await User.update(
       {
-        user_name: req.body.user_name,
+        user_name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
       },
       {
         where: {
@@ -87,7 +86,7 @@ const updateUser = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to update user." });
   }
-}
+};
 
 // Delete User - DELETE request
 const deleteUser = async (req, res) => {

@@ -12,10 +12,6 @@
                             value="{{profile.user_name}}">
                         <label class="text-uppercase text-muted fs-5 ms-3" for="user-name">Username</label>
                     </div>
-
-                    <div class="col-auto">
-                        <a href="#" class="btn btn-lg btn-secondary text-uppercase mt-2"><i class="far fa-edit"></i></a>
-                    </div>
                 </form>
 
                 <form class="row">
@@ -24,10 +20,8 @@
                             value="{{profile.email}}">
                         <label class="text-uppercase text-muted fs-5 ms-3" for="email">Email address</label>
                     </div>
-
-
                     <div class="col-auto">
-                        <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-edit"></i></a>
+                        <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i id="edit-btn" data-id="{{profile.id}}" class="far fa-edit"></i></a>
                     </div>
                 </form>
             </div>
@@ -59,7 +53,7 @@
                     </div>
 
                     <div  class="col-auto ">
-                        <a data-id="{{address.id}}" href="#" class="btn btn-lg btn-secondary text-uppercase mt-2 address-delete"><i class="far fa-trash-alt"></i></a>
+                        <div data-id="{{address.id}}" class="btn btn-lg btn-secondary text-uppercase mt-2 address-delete"><i class="far fa-trash-alt"></i></div>
                     </div>
                 </div>
                 {{/each}}
