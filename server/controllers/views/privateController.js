@@ -55,6 +55,7 @@ const renderShipmentFormPage = async (req, res) => {
     res.render(`shipment`, {
         title: "New Shipment",
         couriers,
+        addresses,
         logged_in: req.session.logged_in,
     });
 };
