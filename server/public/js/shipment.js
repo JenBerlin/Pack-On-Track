@@ -53,14 +53,14 @@ const editShipment = async (event) => {
 
 const getAllFormFields = () => {
     const tracking_number = document.querySelector("#tracking-number").value.trim();
-    const courier = document.querySelector("#courier-choice").value.trim();
+    const courier_id = document.querySelector("#courier-choice").value.trim();
     const order_from = document.querySelector("#order-from").value.trim();
     const order_made = document.querySelector("#order-made").value.trim();
     const description = document.querySelector("#description").value.trim();
     const library_keyword = document.querySelector("#library-keyword").value.trim();
     return {
         tracking_number,
-        courier,
+        courier_id,
         order_from,
         order_made,
         description,

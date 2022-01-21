@@ -4,16 +4,21 @@
   <div class="col-12 ms-4">
     <div class="card">
       <div class="card-body">
-        <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Dashboard</p>
-        <div class="row">
-          <div class="col-2 mb-4">
-            <a href="/shipment" class="btn btn-lg btn-secondary text-uppercase">+ Shipment</a>
-          </div>
+        <p class="text-uppercase fs-4 text-muted fw-bold" style="margin-bottom: 0px">Dashboard</p>
 
-          <div class="col-2 mb-4">
-            <a href="/address" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
-          </div>
+        {{!-- <div class="row" style="float: right">
+          <div class="col-6"> --}}
+            <a href="#" class="btn btn-lg btn-secondary text-uppercase m-0" style="float: right">+ Shipment</a>
+            {{!--
+          </div> --}}
+
+          {{!-- <div class="col-6"> --}}
+            {{!-- <a href="#" class="btn btn-lg btn-secondary text-uppercase" style="float: right">+ Keyword / Address
+              </Address></a> --}}
+            {{!-- </div> --}}
+
         </div>
+
         <div class="bg-light border">
           {{#each dashboard.shipments as |shipment| }}
           <div class="accordion-item">
@@ -25,80 +30,80 @@
                 Click for more details ...
               </button>
 
-              <form class="row">
+              <div class="row">
 
                 <!-- From database -->
-                <div class="col-2 form-floating mb-2 mt-3 ms-3">
-                  <p type="text" class="form-control" id="expected-arrival" placeholder="expected-arrival">{{formatDate
-                    shipment.expected_arrival}}</p>
-                  <label class="text-uppercase text-muted fs-5 ms-3" for="expected-arrival">Day of arrival</label>
-                </div>
-
-                <!-- From database -->
-                <div class="col-md-3 form-floating mb-2 mt-3">
-                  <p type="text" class="form-control" id="order-from" placeholder="order-from">{{shipment.order_from}}
-                  </p>
-                  <label class="text-uppercase text-muted fs-5 ms-3" for="order-from">Ordered from ...</label>
+                <div class="col-2 form-floating mt-2 ms-2" style="padding-left: 4px">
+                  <p type="text" class="form-control ms-3 mt-2 fw-bold fs-5" id="expected-arrival"
+                    placeholder="expected-arrival">{{formatDate shipment.expected_arrival}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-4" for="expected-arrival">Day of arrival</label>
                 </div>
 
                 <!-- From database -->
-                <div class="col-1 form-floating mb-2 mt-3">
-                  <p type="text" class="form-control" id="floatingInputGrid" placeholder="date-arrival">
-                    {{shipment.courier.courier_name}}</p>
-                  <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Courier</label>
+                <div class="col-md-3 form-floating mt-2 ms-2">
+                  <p type="text" class="form-control ms-3 mt-2 fw-bold fs-5" id="order-from" placeholder="order-from">
+                    {{shipment.order_from}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-4" for="order-from">Ordered from ...</label>
                 </div>
 
-                <div class="col-2 form-floating mb-2 mt-3">
-                  <p type="text" class="form-control" id="floatingInputGrid" placeholder="keyword">
-                    {{shipment.address.library_keyword}}</p>
-                  <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Address keyword</label>
+                <!-- From database -->
+                <div class="col-1 form-floating mt-2 ms-2">
+                  <p type="text" class="form-control ms-3 mt-2 fw-bold fs-5" id="floatingInputGrid"
+                    placeholder="date-arrival">{{shipment.courier.courier_name}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-4" for="floatingInputGrid">Courier</label>
                 </div>
 
-                <div class="col-2 form-floating mb-2 mt-3">
-                  <p type="trackingnumber" class="form-control" id="tracking-number" placeholder="tracking number">
-                    {{shipment.tracking_number}}</p>
-                  <label class="text-uppercase text-muted fs-5 ms-3" for="tracking-number">Tracking number</label>
+                <div class="col-2 form-floating mt-2 ms-2">
+                  <p type="text" class="form-control ms-3 mt-2 fw-bold fs-5" id="floatingInputGrid"
+                    placeholder="keyword">{{shipment.address.library_keyword}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-4" for="floatingInputGrid">Address keyword</label>
                 </div>
 
-                <div class="col-auto mb-2 mt-3">
+                <div class="col-2 form-floating mt-2 ms-2">
+                  <p type="trackingnumber" class="form-control ms-3 mt-2 fw-bold fs-5" id="tracking-number"
+                    placeholder="tracking number">{{shipment.tracking_number}}</p>
+                  <label class="text-uppercase text-muted fs-5 ms-4" for="tracking-number">Tracking number</label>
+                </div>
+
+                <div class="col-auto mt-3 ms-3">
                   <a href="/shipment/{{shipment.id}}" class="btn btn-lg btn-secondary text-uppercase"><i
                       class="far fa-edit"></i></a>
                 </div>
 
-                <div data-id="{{shipment.id}}" class="col-auto mb-2 mt-3 shipment-delete">
+                <div data-id="{{shipment.id}}" class="col-auto mt-3 shipment-delete">
                   <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
                 </div>
 
 
-              </form>
+              </div>
             </h2>
 
             <div id="collapseTwo{{shipment.id}}" class="accordion-collapse collapse"
               aria-labelledby="headingTwo{{shipment.id}}" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
+              <div class="accordion-body p-0 mt-0">
 
-                <form class="row">
-                  <div class="col-5 form-floating mb-2 mt-1">
-                    <p type="text" class="form-control" id="description" placeholder="description" value="">
-                      {{shipment.description}}</p>
-                    <label class="text-uppercase text-muted fs-5 ms-3 text-wrap" for="description">Order
+                <div class="row">
+                  <div class="col-5 form-floating ">
+                    <p type="text" class="form-control ms-3 mt-2 fw-bold fs-5" id="description"
+                      placeholder="description" value="">{{shipment.description}}</p>
+                    <label class="text-uppercase text-muted fs-5 ms-4 text-wrap" for="description">Order
                       description</label>
                   </div>
 
-                  <div class="col-3 form-floating mb-2 mt-1">
-                    <p type="text" class="form-control" id="floatingInputGrid" placeholder="order-number">
-                      {{shipment.order_number}}</p>
-                    <label class="text-uppercase text-muted fs-5 ms-3" for="order-number">Order number</label>
+                  <div class="col-3 form-floating">
+                    <p type="text" class="form-control ms-3 mt-2 fw-bold fs-5" id="floatingInputGrid"
+                      placeholder="order-number">{{shipment.order_number}}</p>
+                    <label class="text-uppercase text-muted fs-5 ms-4" for="order-number">Order number</label>
                   </div>
 
-                  <div class="col-3 form-floating mb-2 mt-1 ms-3">
-                    <p type="date-made" class="form-control" id="floatingInputGrid" placeholder="order-made">
-                      {{formatDate shipment.order_made}}</p>
-                    <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Order placed on
+                  <div class="col-3 form-floating">
+                    <p type="date-made" class="form-control ms-3 mt-2 fw-bold fs-5" id="floatingInputGrid"
+                      placeholder="order-made">{{formatDate shipment.order_made}}</p>
+                    <label class="text-uppercase text-muted fs-5 ms-4" for="floatingInputGrid">Order placed on
                       ...</label>
                   </div>
 
-                </form>
+                </div>
 
               </div>
             </div>
@@ -109,5 +114,12 @@
         </div>
       </div>
     </div>
+
+
   </div>
+  {{/each }}
+</div>
+</div>
+</div>
+</div>
 </div>

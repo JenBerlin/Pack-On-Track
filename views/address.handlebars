@@ -7,77 +7,76 @@
         <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">{{title}}</p>
 
         <form>
+
           <div class="row">
-            <div class="col-6 form-floating mb-4">
-              <input type="firstname" class="form-control" id="address-firstname" placeholder="first name"
-                value="{{address.first_name}}" required />
+            <div class="col-6 form-floating mb-2">
+              <input type="firstname" class="form-control mt-2 fw-bold fs-5" id="address-firstname"
+                placeholder="first name" value="{{address.first_name}}" required />
               <label class="text-uppercase text-muted fs-5 ms-3" for="address-firstname">First name</label>
             </div>
 
-            <div class="col-6 form-floating mb-4">
-              <input type="keyword" class="form-control" id="address-lastname" placeholder="surname"
-                value="{{address.last_name}}" required />
+            <div class="col-6 form-floating mb-2">
+              <input type="address-lastname" class="form-control mt-2 fw-bold fs-5" id="address-lastname"
+                placeholder="surname" value="{{address.last_name}}" />
               <label class="text-uppercase text-muted fs-5 ms-3" for="address-lastname">Surname</label>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-9 form-floating mb-4">
-              <input type="keyword" class="form-control" id="street" placeholder="street" value="{{address.street}}"
-                required />
-              <label class="text-uppercase text-muted fs-5" for="street">Street</label>
+            <div class="col-6 form-floating mb-2">
+              <input type="street" class="form-control mt-2 fw-bold fs-5" id="street" placeholder="street"
+                value="{{address.street}}" required />
+              <label class="text-uppercase text-muted fs-5 ms-3" for="street">Street</label>
             </div>
 
-            <div class="col-3 form-floating mb-4">
-              <input type="keyword" class="form-control" id="streetnumber" placeholder="street number"
-                value="{{address.street_number}}" required />
-              <label class="text-uppercase text-muted fs-5" for="streetnumber">Street No.</label>
+            <div class="col-2 form-floating mb-2">
+              <input type="street-number" class="form-control mt-2 fw-bold fs-5" id="streetnumber"
+                placeholder="street number" value="{{address.street_number}}" />
+              <label class="text-uppercase text-muted fs-5 ms-3" for="streetnumber">Street No.</label>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-6 form-floating mb-4">
-              <input type="company" class="form-control" id="company" placeholder="company" value="{{address.company}}"
-                required />
+            <div class="col-6 form-floating mb-2">
+              <input type="company" class="form-control mt-2 fw-bold fs-5" id="company" placeholder="company"
+                value="{{address.company}}" />
               <label class="text-uppercase text-muted fs-5 ms-3" for="company">Company</label>
             </div>
 
-            <div class="col-6 form-floating mb-4">
-              <input type="additionalInfo" class="form-control" id="additional-line" placeholder="additinalInfo"
-                value="{{address.additional_line}}" required />
+            <div class="col-6 form-floating mb-2">
+              <input type="additionalInfo" class="form-control mt-2 fw-bold fs-5" id="additional-line"
+                placeholder="additinalInfo" value="{{address.additional_line}}" />
               <label class="text-uppercase text-muted fs-5 ms-3" for="additional-line">Additional info</label>
             </div>
           </div>
 
-          <div>
-            <div class="col-3 form-floating mb-4">
-              <input type="postcode" class="form-control" id="post-number" placeholder="postcode"
-                value="{{address.post_number}}" required />
-              <label class="text-uppercase text-muted fs-5" for="post-number">Postal code</label>
-            </div>
-          </div>
-
           <div class="row">
-            <div class="col-6 form-floating mb-5">
-              <input type="city" class="form-control" id="city" placeholder="city" value="{{address.city}}" required />
+            <div class="col-3 form-floating mb-2">
+              <input type="postcode" class="form-control mt-2 fw-bold fs-5" id="post-number" placeholder="postcode"
+                value="{{address.post_number}}" required />
+              <label class="text-uppercase text-muted fs-5 ms-3" for="post-number">Postal code</label>
+            </div>
+
+            <div class="col-3 form-floating mb-2">
+              <input type="city" class="form-control mt-2 fw-bold fs-5" id="city" placeholder="city"
+                value="{{address.city}}" required />
               <label class="text-uppercase text-muted fs-5 ms-3" for="city">City</label>
             </div>
 
-            <div class="col-6 form-floating mb-5">
-              <input type="country" class="form-control" id="country" placeholder="country" value="{{address.country}}"
-                required />
+            <div class="col-6 form-floating mb-2">
+              <input type="country" class="form-control mt-2 fw-bold fs-5" id="country" placeholder="country"
+                value="{{address.country}}" required />
               <label class="text-uppercase text-muted fs-5 ms-3" for="country">Country</label>
+            </div>
+
+            <div class="col-6 form-floating mb-5 mt-4">
+              <input type="keyword" class="form-control mt-2 fw-bold fs-5" id="library-keyword" placeholder="keyword"
+                value="{{address.library_keyword}}" required />
+              <label class="text-uppercase text-muted fs-5" for="library-keyword">Keyword for this address (e.g.
+                office, home)</label>
             </div>
           </div>
 
-          <div>
-            <div class="col-6 form-floating mb-5">
-              <input type="keyword" class="form-control" id="library-keyword" placeholder="keyword"
-                value="{{address.library_keyword}}" required />
-              <label class="text-uppercase text-muted fs-5" for="library-keyword">Keyword for this address (e.g. office,
-                home)</label>
-            </div>
-          </div>
         </form>
         <div>
           {{#if isEdit}}
