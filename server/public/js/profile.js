@@ -31,6 +31,7 @@ const getAllFormFields = () => {
 
   const deleteAddress = async (event) => {
     event.preventDefault();
+    console.log(1)
     const id = event.target.getAttribute("data-id");
     console.log(id)
     // Send a DELETE request to the API endpoint
@@ -53,10 +54,10 @@ const getShipmentStatus = () => {
 }
 
 
-document
-  .getElementById("edit-btn")
-  .addEventListener("click", editUser);
+// document
+//   .getElementById("edit-btn")
+//   .addEventListener("click", editUser);
 
 document
-    .querySelector(".shipment-delete")
+    .querySelector(".address-delete")
     .addEventListener("click", deleteAddress);
