@@ -42,7 +42,7 @@
 
             <div class="col-3 form-floating mb-5">
               <input type="date" class="form-control mt-2 fw-bold fs-5" id="date-arrival" placeholder="date-arrival"
-                value="{{shipment.expected_arrival}}" />
+                value="{{formatDatePicker shipment.expected_arrival}}" />
               <label class="text-uppercase text-muted fs-5 ms-3" for="date-arrival">Day of arrival</label>
             </div>
           </div>
@@ -63,7 +63,7 @@
 
             <div class="col-3 form-floating mb-1">
               <input type="date" class="form-control mt-2 fw-bold fs-5" id="order-made" placeholder="order-made"
-                value="{{shipment.order_made}}" />
+                value="{{formatDatePicker shipment.order_made}}" />
               <label class="text-uppercase text-muted fs-5 ms-3" for="order-made">Order placed on ...</label>
             </div>
           </div>
@@ -80,32 +80,21 @@
           <div class="row">
             <p class="text-uppercase fs-4 text-muted mb-2">Shipment goes to the
               following address and receiver:</p>
+
             <div class="col-5 form-floating mb-4">
-              <input type="keyword" class="form-control" id="keyword" placeholder="order-deteails"
-                value="{{address.library_keyword}}" />
-              <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Keyword</label>
-            </div>
-          </div>
+              <select class="form-select text-uppercase text-muted text-center fs-5" id="address-id">
+                {{#if shipment }}
+                <option>Delievered To...</option>
+                {{else}}
+                <option selected>Delievered To...</option>
+                {{/if}}
 
-          <div class="row">
-            <p class="text-uppercase fs-4 text-muted mb-2">Shipment goes to the
-              following address and receiver:</p>
-            <div class="col-5 form-floating mb-4">
-              <input type="orderDetails" class="form-control" id="library-keyword" placeholder="order-details"
-                value="{{address.library_keyword}}" />
-              <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Keyword</label>
+                {{#each addresses as |address|}}
+                <option value={{address.id}} {{#if address.isSelected}} selected {{/if}}>{{address.library_keyword}}
+                </option>
+                {{/each}}
+              </select>
             </div>
-
-            <div class="col-1 form-floating mb-4">
-              <p class="text-uppercase text-muted fs-5 ms-4">OR</p>
-            </div>
-
-            <div class="col-3 form-floating mb-4">
-              <a href="#" class="btn btn-lg btn-secondary text-uppercase">+
-                Keyword / Address</a>
-            </div>
-          </div>
-
         </form>
 
         <div>

@@ -57,7 +57,7 @@ const getAllFormFields = () => {
     const post_number = document.querySelector("#post-number").value.trim();
     const city = document.querySelector("#city").value.trim();
     const country = document.querySelector("#country").value.trim();
-    const library_keyword = document.querySelector("#library-keyword").value.trim();
+    const address_id = document.querySelector("#address-id").value.trim();
     return {
         first_name,
         last_name,
@@ -68,7 +68,7 @@ const getAllFormFields = () => {
         post_number,
         city,
         country,
-        library_keyword
+        address_id
     }
 }
 

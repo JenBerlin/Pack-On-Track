@@ -40,9 +40,18 @@ const renderProfilePage = async (req, res) => {
 };
 
 const renderShipmentFormPage = async (req, res) => {
+    const userId = req.session.userId;
     let couriers = await Courier.findAll()
+    let addresses = await Address.findAll(
+        {
+            where: {
+                user_id: userId,
+            },
+        }
+    )
     //const variables = {...couriers,  logged_in: req.session.logged_in}
     couriers = couriers.map(courier => courier.get({ plain: true }))
+    addresses = addresses.map(address => address.get({ plain: true }))
     res.render(`shipment`, {
         title: "New Shipment",
         couriers,
@@ -50,7 +59,15 @@ const renderShipmentFormPage = async (req, res) => {
     });
 };
 const renderEditShipmentFormPage = async (req, res) => {
-    let couriers = await Courier.findAll()
+    const userId = req.session.userId;
+    let couriers = await Courier.findAll();
+    let addresses = await Address.findAll(
+        {
+            where: {
+                user_id: userId,
+            },
+        }
+    )
     const id = req.params.id;
     let shipment = await Shipment.findByPk(id, {
         include: [
@@ -59,7 +76,12 @@ const renderEditShipmentFormPage = async (req, res) => {
         ],
     });
     couriers = couriers.map(courier => courier.get({ plain: true }))
+    addresses = addresses.map(address => address.get({ plain: true }))
     shipment = shipment.get({ plain: true });
+
+    addresses.forEach(address => {
+        address.isSelected = shipment.address.id == address.id;
+    })
 
     couriers.forEach(courier => {
         courier.isSelected = shipment.courier.id == courier.id;
@@ -69,6 +91,7 @@ const renderEditShipmentFormPage = async (req, res) => {
         title: "Edit Shipment",
         couriers,
         shipment,
+        addresses,
         isEdit: true,
         logged_in: req.session.logged_in,
     };

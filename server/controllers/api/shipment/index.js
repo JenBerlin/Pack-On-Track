@@ -81,10 +81,12 @@ const getAllShipments = async (req, res) => {
 // Update shipment - PUT request
 
 const updateShipment = async (req, res) => {
+  const userId = req.session.userId;
+  console.log(req.body)
   try {
     await Shipment.update(
       {
-        user_id: req.session.user_id, // should not be possible to update?
+        user_id: userId,
         address_id: req.body.address_id,
         courier_id: req.body.courier_id,
         tracking_number: req.body.tracking_number,
