@@ -3,6 +3,7 @@ const sequelize = require("../../../../config/connection");
 const { User, Shipment, Courier, Address } = require("../../../../models");
 const auth = require("../../../auth"); // if user not logged in, gets redirected to /login
 const { beforeCreate, beforeUpdate } = require("../../../../server/hooks");
+const validator = require("validator");
 
 // Login - POST request
 const userLogin = async (req, res) => {
@@ -51,7 +52,7 @@ const userLogout = async (req, res) => {
 // Create User - Sign Up - POST request
 const userSignup = async (req, res) => {
   try {
-    if (req.body.user_name && req.body.password) {
+    if (req.body.user_name && req.body.password && validator.isEmail(req.body.email)===true) {
       await User.create({
         user_name: req.body.user_name,
         email: req.body.email,
