@@ -15,7 +15,6 @@
 
   - [User Story](#user-story)
   - [Technologies Used](#technologies-used)
-  - [Web APIs](#web-apis)
   - [Wireframes](#wireframes)
 
 - [Plans For Improvement](#plans-for-improvement)
@@ -87,7 +86,8 @@ Pack On Track is a handy light-weight web app which keeps track of all your acti
   - create, view, update, delete shipment
   - create, view, update, delete address
   - update user's profile
-- hashed password
+- password hashing
+- username and password validation
 - password verification during sign-up
 
 <br>
@@ -142,9 +142,8 @@ As a spirited online shopper, I want to keep track of my current orders. I want 
 - tracking of where the parcel is at the moment
 - email plugin to transfer order confirmation data into the App and account
 - adjusting dekiuvery date directly through the app
-- delivery pickupo notification
-- Slack message/ email notification for this week's shipments
-- password re-type security feature on login page ?
+- delivery pickup notification
+- email notification for this week's shipments
 - user confirmation/verification request after sign-up (users click a link emailed to them)
 - developing a mobile app
 
