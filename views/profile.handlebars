@@ -7,22 +7,22 @@
                 <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Account info</p>
 
                 <form class="row">
-                    <div class="col-10 form-floating mb-5">
-                        <input type="username" class="form-control" id="user-name" placeholder="username"
+                    <div class="col-9 form-floating mb-5">
+                        <input type="username" class="form-control mt-2 fw-bold fs-5" id="user-name" placeholder="username"
                             value="{{profile.user_name}}">
-                        <label class="text-uppercase text-muted fs-5" for="user-name">Username</label>
+                        <label class="text-uppercase text-muted fs-5 ms-3" for="user-name">Username</label>
                     </div>
 
                     <div class="col-auto">
-                        <a href="#" class="btn btn-lg btn-secondary text-uppercase mb-5"><i class="far fa-edit"></i></a>
+                        <a href="#" class="btn btn-lg btn-secondary text-uppercase mt-2"><i class="far fa-edit"></i></a>
                     </div>
                 </form>
 
                 <form class="row">
-                    <div class="col-10 form-floating ">
-                        <input type="email" class="form-control" id="email" placeholder="email address"
+                    <div class="col-9 form-floating ">
+                        <input type="email" class="form-control mt-2 fw-bold fs-5" id="email" placeholder="email address"
                             value="{{profile.email}}">
-                        <label class="text-uppercase text-muted fs-5" for="email">Email address</label>
+                        <label class="text-uppercase text-muted fs-5 ms-3" for="email">Email address</label>
                     </div>
 
 
@@ -49,17 +49,17 @@
                     <!-- Dropdown -->
                     <div class="col-6 form-floating mb-5">
                         <label for="inputKeyword" class="visually-hidden">Keyword</label>
-                        <p type="keyword" class="form-control" id="inputKeyword" placeholder="Keyword">
+                        <p type="keyword" class="form-control mt-2 fw-bold fs-5" id="inputKeyword" placeholder="Keyword">
                             {{address.library_keyword}}</p>
                     </div>
 
                     <div class="col-auto">
-                        <a href="/address/{{address.id}}" class="btn btn-lg btn-secondary text-uppercase"><i
+                        <a href="/address/{{address.id}}" class="btn btn-lg btn-secondary text-uppercase mt-2"><i
                                 class="far fa-edit"></i></a>
                     </div>
 
                     <div data-id="{{shipment.id}}" class="col-auto address-delete">
-                        <a href="" class="btn btn-lg btn-secondary text-uppercase"><i class="far fa-trash-alt"></i></a>
+                        <a href="" class="btn btn-lg btn-secondary text-uppercase mt-2"><i class="far fa-trash-alt"></i></a>
                     </div>
                 </form>
                 {{/each}}

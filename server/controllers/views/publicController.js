@@ -8,7 +8,19 @@ const renderLandingPage = (req, res) => {
   console.log("Rendering landing");
 };
 
+const renderAboutPage = (req, res) => {
+  res.render(`about-us`);
+  console.log("Rendering about-us");
+};
+
+const renderFAQPage = (req, res) => {
+  res.render(`faq`);
+  console.log("Rendering faq");
+};
+
 module.exports = {
   renderLoginSignUpPage,
   renderLandingPage,
+  renderAboutPage,
+  renderFAQPage,
 };
