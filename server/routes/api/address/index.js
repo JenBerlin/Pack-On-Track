@@ -29,7 +29,7 @@ router.put("/:id", updateAddress);
 
 // Delete address - DELETE request
 
-router.delete("/:id", deleteAddress);
+router.delete("/:id", async (req, res)=> await deleteAddress(req, res));
 
 
 module.exports = router;
