@@ -1,9 +1,10 @@
-body, html {
+body,
+html {
   height: 100%;
 }
 
 .background {
-  background-image: url("/images/packs_1.jpg");
+  background-image: url("/images/packs_1_small.jpg");
 
   height: 100%;
 
@@ -17,9 +18,7 @@ body, html {
   bottom: 0;
   left: 0;
   width: 100%;
- }
-
-
+}
 
 /* body {
  background-image: url("../images/packs_1.jpg");

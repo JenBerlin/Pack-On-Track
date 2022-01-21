@@ -7,10 +7,10 @@
         <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">{{title}}</p>
 
         <form class="row">
-          <div class="col-6 form-floating mb-4">
+          <div class="col-6 form-floating mb-2">
             <input
               type="firstname"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="address-firstname"
               placeholder="first name"
               value="{{address.first_name}}"
@@ -21,10 +21,10 @@
             >First name</label>
           </div>
 
-          <div class="col-6 form-floating mb-4">
+          <div class="col-6 form-floating mb-2">
             <input
-              type="keyword"
-              class="form-control"
+              type="address-lastname"
+              class="form-control mt-2 fw-bold fs-5"
               id="address-lastname"
               placeholder="surname"
               value="{{address.last_name}}"
@@ -36,41 +36,41 @@
           </div>
         </form>
 
-        <form>
-          <div class="col-9 form-floating mb-4">
+        <form class="row">
+          <div class="col-6 form-floating mb-2">
             <input
-              type="keyword"
-              class="form-control"
+              type="street"
+              class="form-control mt-2 fw-bold fs-5"
               id="street"
               placeholder="street"
               value="{{address.street}}"
             />
             <label
-              class="text-uppercase text-muted fs-5"
+              class="text-uppercase text-muted fs-5 ms-3"
               for="street"
             >Street</label>
           </div>
 
-          <div class="col-3 form-floating mb-4">
+          <div class="col-2 form-floating mb-2">
             <input
-              type="keyword"
-              class="form-control"
+              type="street-number"
+              class="form-control mt-2 fw-bold fs-5"
               id="streetnumber"
               placeholder="street number"
               value="{{address.street_number}}"
             />
             <label
-              class="text-uppercase text-muted fs-5"
+              class="text-uppercase text-muted fs-5 ms-3"
               for="streetnumber"
             >Street No.</label>
           </div>
         </form>
 
         <form class="row">
-          <div class="col-6 form-floating mb-4">
+          <div class="col-6 form-floating mb-2">
             <input
               type="company"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="company"
               placeholder="company"
               value="{{address.company}}"
@@ -81,10 +81,10 @@
             >Company</label>
           </div>
 
-          <div class="col-6 form-floating mb-4">
+          <div class="col-6 form-floating mb-2">
             <input
               type="additionalInfo"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="additional-line"
               placeholder="additinalInfo"
               value="{{address.additional_line}}"
@@ -96,27 +96,24 @@
           </div>
         </form>
 
-        <form>
-          <div class="col-3 form-floating mb-4">
+        <form class="row">
+          <div class="col-3 form-floating mb-2">
             <input
               type="postcode"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="post-number"
               placeholder="postcode"
               value="{{address.post_number}}"
             />
             <label
-              class="text-uppercase text-muted fs-5"
+              class="text-uppercase text-muted fs-5 ms-3"
               for="post-number"
             >Postal code</label>
           </div>
-        </form>
-
-        <form class="row">
-          <div class="col-6 form-floating mb-5">
+          <div class="col-3 form-floating mb-2">
             <input
               type="city"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="city"
               placeholder="city"
               value="{{address.city}}"
@@ -127,10 +124,10 @@
             >City</label>
           </div>
 
-          <div class="col-6 form-floating mb-5">
+          <div class="col-6 form-floating mb-2">
             <input
               type="country"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="country"
               placeholder="country"
               value="{{address.country}}"
@@ -143,10 +140,10 @@
         </form>
 
         <form>
-          <div class="col-6 form-floating mb-5">
+          <div class="col-6 form-floating mb-5 mt-4">
             <input
               type="keyword"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="library-keyword"
               placeholder="keyword"
               value="{{address.library_keyword}}"

@@ -11,7 +11,7 @@
           <div class="col-5 form-floating mb-5">
             <input
               type="trackingnumber"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="tracking-number"
               placeholder="tracking number"
               value="{{shipment.tracking_number}}"
@@ -65,7 +65,7 @@
           <div class="col-3 form-floating mb-5">
             <input
               type="date"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="date-arrival"
               placeholder="date-arrival"
               value="{{shipment.expected_arrival}}"
@@ -78,11 +78,11 @@
         </form>
 
         <form class="row">
-          <p class="text-uppercase fs-4 text-muted mb-2">Order details</p>
-          <div class="col-5 form-floating mb-4">
+          <p class="text-uppercase fs-4 text-muted mb-1">Order details</p>
+          <div class="col-5 form-floating mb-2">
             <input
               type="orderDetails"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="order-from"
               placeholder="order-from"
               value="{{shipment.order_from}}"
@@ -93,10 +93,10 @@
             >Ordered from ...</label>
           </div>
 
-          <div class="col-3 form-floating mb-4">
+          <div class="col-3 form-floating mb-1">
             <input
               type="orderNumber"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="order-number"
               placeholder="order-number"
               value="{{shipment.order_number}}"
@@ -107,10 +107,10 @@
             >Order number</label>
           </div>
 
-          <div class="col-3 form-floating mb-4">
+          <div class="col-3 form-floating mb-1">
             <input
               type="date"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="order-made"
               placeholder="order-made"
               value="{{shipment.order_made}}"
@@ -126,7 +126,7 @@
           <div class="col-11 form-floating mb-5">
             <input
               type="description"
-              class="form-control"
+              class="form-control mt-2 fw-bold fs-5"
               id="description"
               placeholder="description"
               value="{{shipment.description}}"
@@ -143,9 +143,9 @@
             following address and receiver:</p>
           <div class="col-5 form-floating mb-4">
             <input
-              type="orderDetails"
+              type="keyword"
               class="form-control"
-              id="floatingInputGrid"
+              id="keyword"
               placeholder="order-deteails"
               value="{{address.library_keyword}}"
             />
