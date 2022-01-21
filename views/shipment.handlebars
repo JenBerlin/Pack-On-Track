@@ -26,20 +26,6 @@
               {{#each couriers as |courier|}}
                <option value={{courier.id}} {{#if courier.isSelected}} selected {{/if}}>{{courier.courier_name}}</option>
               {{/each}}
-
-
-              <!--{{#each couriers as |courier| }}
-              {{#if shipment }}
-                 {{#if matchCourierId courier.id shipment.courier.id}}
-                  <option value={{courier.id}} selected>{{courier.courier_name}}</option>
-                  {{else}}
-                  <option value={{courier.id}}>{{courier.courier_name}}</option>
-                  {{/if}}
-              {{else}}
-              <option value={{courier.id}}>{{courier.courier_name}}</option>
-              {{/if}}
-              {{/each }}-->
-
             </select>
           </div>
 

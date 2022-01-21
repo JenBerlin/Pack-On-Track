@@ -2,39 +2,41 @@
 const { Address, Courier, Shipment, User } = require("../../../models");
 
 const renderDashboardPage = async (req, res) => {
-  console.log(`Dashboard`);
-  const id = req.session.userId;
-  let dashboard = await User.findByPk(id, {
-    include: [
-      {
-        model: Shipment,
+    console.log(`Dashboard`);
+    const id = req.session.userId;
+    console.log(id)
+    let dashboard = await User.findByPk(id, {
         include: [
-          { model: Courier },
-          { model: Address, attributes: ["library_keyword", "id"] },
+            {
+                model: Shipment,
+                include: [
+                    { model: Courier },
+                    { model: Address, attributes: ["library_keyword", "id"] },
+                ],
+            },
+            { model: Address, attributes: ["library_keyword", "id"] },
         ],
-      },
-      { model: Address, attributes: ["library_keyword", "id"] },
-    ],
-  });
-  dashboard = dashboard.get({ plain: true });
-  const variables = {
-    dashboard,
-    logged_in: req.session.loggedIn,
-  };
-  res.render("dashboard", variables);
+    });
+    dashboard = dashboard.get({ plain: true });
+    const variables = {
+        dashboard,
+        logged_in: req.session.loggedIn,
+    };
+    res.render("dashboard", variables);
 };
 
 const renderProfilePage = async (req, res) => {
-  const id = req.session.userId;
-  let profile = await User.findByPk(id, {
-    include: [{ model: Address, attributes: ["library_keyword", "id"] }],
-  });
-  profile = profile.get({ plain: true });
-  const variables = {
-    profile,
-    logged_in: req.session.loggedIn,
-  };
-  res.render(`profile`, variables);
+    const id = req.session.userId;
+    console.log(id)
+    let profile = await User.findByPk(id, {
+        include: [{ model: Address, attributes: ["library_keyword", "id"] }],
+    });
+    profile = profile.get({ plain: true });
+    const variables = {
+        profile,
+        logged_in: req.session.loggedIn,
+    };
+    res.render(`profile`, variables);
 };
 
 const renderShipmentFormPage = async (req, res) => {
@@ -92,10 +94,10 @@ const renderEditAddressFormPage = async (req, res) => {
         address,
         title: "Edit Address",
 
-    isEdit: true,
-    logged_in: req.session.loggedIn,
-  };
-  res.render(`address`, variables);
+        isEdit: true,
+        logged_in: req.session.loggedIn,
+    };
+    res.render(`address`, variables);
 };
 
 module.exports = {

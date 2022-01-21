@@ -1,7 +1,9 @@
 
+var invalidFields = [];
 const createNewAdress = async (event) => {
+    console.log("button pressed!")
     event.preventDefault();
-    const addressInfo = getAllFormFields(id);
+    const addressInfo = getAllFormFields();
     const isValid = checkIfValid(addressInfo);
     if (isValid) {
         const response = await fetch(`/api/address`, {
@@ -15,12 +17,17 @@ const createNewAdress = async (event) => {
         } else {
             alert(response.statusText);
         }
+    } else {
+        alert(`Please check out invalid/empty fields: ${invalidFields.join(",")}`);
+        invalidFields = [];
     }
 }
 
 const editAddress = async (event) => {
     event.preventDefault();
+    const id = getIdFromURL()
     const addressInfo = getAllFormFields();
+    addressInfo.id = id;
     const isValid = checkIfValid(addressInfo);
     if (isValid) {
         const response = await fetch(`/api/address/${id}`, {
@@ -62,12 +69,36 @@ const getAllFormFields = () => {
     }
 }
 
+const getIdFromURL = () => {
+    var baseUrl = (window.location).href; // You can also use document.URL
+    var id = baseUrl.split("address/")[1];
+    return id
+}
+
+const checkIfValid = (addressInfo) => {
+    for (fieldName in addressInfo) {
+        if (addressInfo[fieldName] == "" || !addressInfo[fieldName]) {
+            invalidFields.push(fieldName);
+        }
+    }
+    if (invalidFields.length > 0) {
+        return false
+    }
+    return true
+}
 
 
-document
-    .getElementById("edit-btn")
-    .addEventListener("submit", editAddress);
 
-document
-    .getElementById("create-btn")
-    .addEventListener("submit", createNewAdress);
+const editBtn = document.querySelector("#edit-btn")
+
+if (editBtn) {
+    console.log("Edit")
+    editBtn.addEventListener("click", editAddress);
+}
+
+const createBtn = document.querySelector("#create-btn")
+
+if (createBtn) {
+    console.log("Create")
+    createBtn.addEventListener("click", createNewAdress);
+}

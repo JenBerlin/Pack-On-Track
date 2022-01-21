@@ -1,6 +1,6 @@
 const deleteShipment = async (event) => {
     event.preventDefault();
-    const id =  event.target.getAttribute("data-sortorder");
+    const id = event.target.getAttribute("data-sortorder");
     // Send a POST request to the API endpoint
     const response = await fetch(`/api/shipment/${id}`, {
         method: "DELETE",
@@ -15,6 +15,10 @@ const deleteShipment = async (event) => {
     }
 
 };
+
+const getShipmentStatus = () => {
+
+}
 
 document
     .querySelector(".signup-form")
