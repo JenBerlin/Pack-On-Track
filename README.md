@@ -1,4 +1,6 @@
-<div style="text-align:center"><a href="........"><img src="./server/public/images/POT-inital-img.png"/></a></div>
+<div ><a href="........"><img src="./server/public/images/POT-logo.png"/></a></div>
+
+<br>
 
 <h1>PACK ON TRACK</h1>
 
@@ -32,14 +34,14 @@
 
 ### Project Link
 
-[Link](https://) to our live app.
-These are our project's [presentation]() and our [GitHub repo]().
+[Link](https://intense-lowlands-65258.herokuapp.com/) to our live app.
+These are our project's [[presentation]]() and our [GitHub repo](https://github.com/JenBerlin/Pack-On-Track/tree/dev).
 
 <br>
 
 ### Getting Started
 
-This is a live website, therefore accessible directly on its [live URL]().
+This is a live website, therefore accessible directly on its [live URL](https://intense-lowlands-65258.herokuapp.com/).
 Should you like to experiment and check the code, feel free to clone the repo to your local machine and open the project in your VSCode:
 
 ```
@@ -47,6 +49,20 @@ git clone git@github.com:JenBerlin/Pack-On-Track.git
 cd Pack-On-Track
 code .
 ```
+
+Install all dependencies (dotenv, express, mysql2, sequelize) by using typing in the terminal:
+
+`npm i`
+
+Open the mysql shell, connect to mysql and run the following command to create the database:
+
+`db/schema.sql`
+
+Go back to your terminal, seed data in the database and start the server by running:
+
+`npm run start`
+
+<br>
 
 ### Contributors
 
@@ -63,7 +79,20 @@ Pack On Track is a handy light-weight web app which keeps track of all your acti
 
 <br>
 
-### Key Features (in bullet points)
+### Key Features
+
+- user sign-up, login, logout
+- view dashboard with all user's shipments
+- from the dashboard, user can:
+  - create, view, update, delete shipment
+  - create, view, update, delete address
+  - update user's profile
+  - [check the shipment status]
+- [with registration, users get an invite to the POT Telegram Channel which they can subscribe to and join]
+- hashed password
+- password verification during sign-up
+
+<br>
 
 #### User Story
 
@@ -101,7 +130,17 @@ As a spirited online shopper, I want to keep track of my current orders. I want 
 
 #### Wireframes
 
-TBD
+- Homepage ![Image](./server/public/images/homepage.png)
+
+- Dasboard ![Image](./server/public/images/dashboard.png)
+
+- Profile ![Image](./server/public/images/user-profile.png)
+
+- Sign In/ Sign Up ![Image](./server/public/images/login_signup.png)
+
+- Shipment ![Image](./server/public/images/shipment-detail.png)
+
+- Address ![Image](./server/public/images/address-detail.png)
 
 <br>
 
