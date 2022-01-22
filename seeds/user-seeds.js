@@ -19,6 +19,12 @@ const userData = [
     email: "carojuarez@coldmail.com",
     password: "Jhh?K45$",
   },
+  {
+    id: 4,
+    user_name: "Swapnil Swapnil",
+    email: "carojuarez@test.com",
+    password: "Test123",
+  },
 ];
 
 const seedUsers = () =>
