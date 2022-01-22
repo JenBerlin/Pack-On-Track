@@ -35,7 +35,7 @@ const userLogin = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed login." });
   }
-}
+};
 
 // Logout - GET request
 const userLogout = async (req, res) => {
@@ -47,12 +47,16 @@ const userLogout = async (req, res) => {
   } else {
     return res.status(500).json({ data: "Sign out failed." });
   }
-}
+};
 
 // Create User - Sign Up - POST request
 const userSignup = async (req, res) => {
   try {
-    if (req.body.user_name && req.body.password && validator.isEmail(req.body.email)===true) {
+    if (
+      req.body.user_name &&
+      req.body.password &&
+      validator.isEmail(req.body.email) === true
+    ) {
       await User.create({
         user_name: req.body.user_name,
         email: req.body.email,
@@ -65,16 +69,15 @@ const userSignup = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to create user." });
   }
-}
+};
 
 // Update User - PUT request
 const updateUser = async (req, res) => {
   try {
     await User.update(
       {
-        user_name: req.body.user_name,
+        user_name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
       },
       {
         where: {
@@ -87,7 +90,7 @@ const updateUser = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to update user." });
   }
-}
+};
 
 // Delete User - DELETE request
 const deleteUser = async (req, res) => {
@@ -102,12 +105,12 @@ const deleteUser = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ error: "Failed to delete user." });
   }
-}
+};
 
 module.exports = {
   userLogin,
   userLogout,
   userSignup,
   updateUser,
-  deleteUser
+  deleteUser,
 };
