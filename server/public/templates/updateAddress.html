@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <title>Pack on Track</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<div class="container-fluid">
+    <nav class="d-flex flex-wrap justify-content-center align-items-center mt-5 mb-5 mx-4">
+        <!-- To "Home" -->
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="text-uppercase text-muted fs-1 bg-white">Pack On Track</span>
+      </a>
+
+      <ul class="nav fs-4 text-muted">
+        <li class="nav-item text-dark text-uppercase"><a href="#" class="nav-link activen text-dark text-muted" aria-current="page">Home</a></li>
+        <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Dashboard</a></li>
+        <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Profile</a></li>
+        <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Login</a></li>
+        <li class="nav-item text-uppercase"><a href="#" class="nav-link text-dark text-muted">Logout</a></li>
+      </ul>
+    </nav>
+</div>
+
+
+<main class="background">
+    <body>
+
+        <div class="row w-100 pt-5 pe-5">
+            <div class="col"></div>
+
+                <div class="col-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Update Address</p>
+
+                                    <form class="row">
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="firstname" class="form-control" id="floatingInputGrid" placeholder="first name">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">First name</label>
+                                        </div>
+
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="surname">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Surname</label>
+                                        </div>
+                                    </form>
+
+                                    <form>
+                                        <div class="col-12 form-floating mb-4">
+                                            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="surname">
+                                            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Street No.</label>
+                                        </div>
+                                    </form>
+
+                                    <form class="row">
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="company" class="form-control" id="floatingInputGrid" placeholder="company">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Company</label>
+                                        </div>
+
+                                        <div class="col-6 form-floating mb-4">
+                                            <input type="additionalInfo" class="form-control" id="floatingInputGrid" placeholder="additinalInfo">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Additional info</label>
+                                        </div>
+                                    </form>
+
+                                    <form>
+                                        <div class="col-3 form-floating mb-4">
+                                            <input type="postcode" class="form-control" id="floatingInputGrid" placeholder="postcode">
+                                            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Postal code</label>
+                                        </div>
+                                    </form>
+
+                                    <form class="row">
+                                        <div class="col-6 form-floating mb-5">
+                                            <input type="city" class="form-control" id="floatingInputGrid" placeholder="city">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">City</label>
+                                        </div>
+
+                                        <div class="col-6 form-floating mb-5">
+                                            <input type="country" class="form-control" id="floatingInputGrid" placeholder="country">
+                                            <label class="text-uppercase text-muted fs-5 ms-3" for="floatingInputGrid">Country</label>
+                                        </div>
+                                    </form>
+
+                                    <form>
+                                        <div class="col-6 form-floating mb-5">
+                                            <input type="keyword" class="form-control" id="floatingInputGrid" placeholder="keyword">
+                                            <label class="text-uppercase text-muted fs-5" for="floatingInputGrid">Keyword for this address (e.g. office, home)</label>
+                                        </div>
+                                    </form>
+
+                                <div>
+                                    <a href="#" class="btn btn-lg btn-secondary text-uppercase">Save</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+        </div>
+    </body>
+</main>
+
+<!-- FOOTER -->
+<footer class="text-center text-lg-start bg-white text-muted">
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Useful Links</h6>
+            <p><a href="" class="text-reset">About us</a></p>
+            <p><a href="#!" class="text-reset">FAQ</a></p>
+            <p><a href="#!" class="text-reset">Inprint</a></p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Social Media</h6>
+            <p><a href="https://www.facebook.com/" target="_blank" class="text-reset">Facebook</a></p>
+            <p><a href="https://www.instagram.com/" target="_blank" class="text-reset">Instagramm</a></p>
+                <!-- Repo Links needs to be added -->
+            <p><a href="https://github.com/" target="_blank" class="text-reset">GitHub</a></p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p> Berlin office: Example street 1<br>10117 Berlin/Germany</p>
+            <p> Prague office: Example street 1<br>110 00 Prague/Czech Republic</p>
+            <p>
+              info@example.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+</body>
+
+</html>

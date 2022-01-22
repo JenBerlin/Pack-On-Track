@@ -1,48 +1,68 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
+<div class="row w-100 pt-5 pe-5">
+    <div class="col"></div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Account info</p>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+                <form class="row">
+                    <div class="col-9 form-floating mb-5">
+                        <input type="username" class="form-control mt-2 fw-bold fs-5" id="user-name" placeholder="username"
+                            value="{{profile.user_name}}">
+                        <label class="text-uppercase text-muted fs-5 ms-3" for="user-name">Username</label>
+                    </div>
+                </form>
 
-  {{#if projects.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+                <form class="row">
+                    <div class="col-9 form-floating ">
+                        <input type="email" class="form-control mt-2 fw-bold fs-5" id="email" placeholder="email address"
+                            value="{{profile.email}}">
+                        <label class="text-uppercase text-muted fs-5 ms-3" for="email">Email address</label>
+                    </div>
+                    <div class="col-auto">
+                        <a href="#" class="btn btn-lg btn-secondary text-uppercase"><i id="edit-btn" data-id="{{profile.id}}" class="far fa-edit"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    {{#each projects as |project|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
-      </div>
     </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div>
 
-<script src="./js/profile.js"></script>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <p class="text-uppercase fs-4 text-muted mb-5 fw-bold">Address library</p>
+
+                {{#each profile.addresses as |address|}}
+                <div class="row">
+                    <div class="col-auto">
+                        <p class="text-uppercase fs-5 text-muted mb-5">Keyword:</p>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="col-6 form-floating mb-5">
+                        <label for="inputKeyword" class="visually-hidden">Keyword</label>
+                        <p type="keyword" class="form-control mt-2 fw-bold fs-5" id="inputKeyword" placeholder="Keyword">
+                            {{address.library_keyword}}</p>
+                    </div>
+
+                    <div class="col-auto">
+                        <a href="/address/{{address.id}}" class="btn btn-lg btn-secondary text-uppercase mt-2"><i
+                                class="far fa-edit"></i></a>
+                    </div>
+
+                    <div  class="col-auto ">
+                        <div data-id="{{address.id}}" class="btn btn-lg btn-secondary text-uppercase mt-2 address-delete"><i class="far fa-trash-alt"></i></div>
+                    </div>
+                </div>
+                {{/each}}
+
+                <div class="mb-2">
+                    <a href="/address" class="btn btn-lg btn-secondary text-uppercase">+ Keyword / Address</Address></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/profile.js"></script>
